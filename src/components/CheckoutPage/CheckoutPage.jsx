@@ -4,16 +4,18 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Formik, Form } from 'formik';
 
 import AddressForm from './Forms/AddressForm';
 import PaymentForm from './Forms/PaymentForm';
 import ReviewOrder from './ReviewOrder';
 
+import validationSchema from './FormModel/validationSchema';
 import useStyles from './styles';
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
-function getStepContent(step) {
+function _renderStepContent(step) {
   switch (step) {
     case 0:
       return <AddressForm />;
@@ -63,24 +65,37 @@ export default function CheckoutPage() {
             </Typography>
           </React.Fragment>
         ) : (
-          <React.Fragment>
-            {getStepContent(activeStep)}
-            <div className={classes.buttons}>
-              {activeStep !== 0 && (
-                <Button onClick={handleBack} className={classes.button}>
-                  Back
-                </Button>
-              )}
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-              </Button>
-            </div>
-          </React.Fragment>
+          <Formik
+            initialValues={{}}
+            validationSchema={validationSchema}
+            onSubmit={(values, actions) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                actions.setSubmitting(false);
+              }, 1000);
+            }}
+            render={props => (
+              <Form>
+                {_renderStepContent(activeStep)}
+
+                <div className={classes.buttons}>
+                  {activeStep !== 0 && (
+                    <Button onClick={handleBack} className={classes.button}>
+                      Back
+                    </Button>
+                  )}
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    className={classes.button}
+                  >
+                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                  </Button>
+                </div>
+              </Form>
+            )}
+          />
         )}
       </React.Fragment>
     </React.Fragment>
