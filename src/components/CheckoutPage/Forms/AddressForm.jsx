@@ -1,12 +1,21 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import { InputField } from '../../FormFields';
+import { Grid, Typography } from '@material-ui/core';
+import { InputField, CheckboxField } from '../../FormFields';
 
-export default function AddressForm() {
+export default function AddressForm(props) {
+  const {
+    formField: {
+      firstName,
+      lastName,
+      address1,
+      address2,
+      city,
+      state,
+      zipcode,
+      country,
+      useAddressForPaymentDetails
+    }
+  } = props;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -14,81 +23,33 @@ export default function AddressForm() {
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
-          <InputField name="firstName" label="First name*" fullWidth />
+          <InputField name={firstName.name} label={firstName.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="lastName"
-            name="lastName"
-            label="Last name"
-            fullWidth
-            autoComplete="lname"
-          />
+          <InputField name={lastName.name} label={lastName.label} fullWidth />
         </Grid>
         <Grid item xs={12}>
-          <TextField
-            required
-            id="address1"
-            name="address1"
-            label="Address line 1"
-            fullWidth
-            autoComplete="billing address-line1"
-          />
+          <InputField name={address1.name} label={address1.label} fullWidth />
         </Grid>
         <Grid item xs={12}>
-          <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
-            fullWidth
-            autoComplete="billing address-line2"
-          />
+          <InputField name={address2.name} label={address2.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="city"
-            name="city"
-            label="City"
-            fullWidth
-            autoComplete="billing address-level2"
-          />
+          <InputField name={city.name} label={city.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            id="state"
-            name="state"
-            label="State/Province/Region"
-            fullWidth
-          />
+          <InputField name={state.name} label={state.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="billing postal-code"
-          />
+          <InputField name={zipcode.name} label={zipcode.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="billing country"
-          />
+          <InputField name={country.name} label={country.label} fullWidth />
         </Grid>
         <Grid item xs={12}>
-          <FormControlLabel
-            control={
-              <Checkbox color="secondary" name="saveAddress" value="yes" />
-            }
-            label="Use this address for payment details"
+          <CheckboxField
+            name={useAddressForPaymentDetails.name}
+            label={useAddressForPaymentDetails.label}
           />
         </Grid>
       </Grid>

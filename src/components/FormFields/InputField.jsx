@@ -6,7 +6,6 @@ import { TextField } from '@material-ui/core';
 export default function InputField(props) {
   const { errorText, ...rest } = props;
   const [field, meta] = useField(props);
-  console.log('TCL: InputField -> useField(props)', useField(props));
 
   function _renderHelperText() {
     const [touched, error] = at(meta, 'touched', 'error');

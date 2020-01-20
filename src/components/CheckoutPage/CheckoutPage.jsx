@@ -11,16 +11,20 @@ import PaymentForm from './Forms/PaymentForm';
 import ReviewOrder from './ReviewOrder';
 
 import validationSchema from './FormModel/validationSchema';
+import checkoutFormModel from './FormModel/checkoutFormModel';
+import formInitialValues from './FormModel/formInitialValues';
+
 import useStyles from './styles';
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const { formId, formField } = checkoutFormModel;
 
 function _renderStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <AddressForm formField={formField} />;
     case 1:
-      return <PaymentForm />;
+      return <PaymentForm formField={formField} />;
     case 2:
       return <ReviewOrder />;
     default:
@@ -32,11 +36,20 @@ export default function CheckoutPage() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
-  function handleNext() {
-    setActiveStep(activeStep + 1);
+  function _submitForm(values, actions) {
+    alert(JSON.stringify(values, null, 2));
+    actions.setSubmitting(false);
   }
 
-  function handleBack() {
+  function _handleSubmit() {
+    if (activeStep === steps.length - 1) {
+      _submitForm();
+    } else {
+      setActiveStep(activeStep + 1);
+    }
+  }
+
+  function _handleBack() {
     setActiveStep(activeStep - 1);
   }
 
@@ -66,28 +79,25 @@ export default function CheckoutPage() {
           </React.Fragment>
         ) : (
           <Formik
-            initialValues={{}}
+            initialValues={formInitialValues}
             validationSchema={validationSchema}
-            onSubmit={(values, actions) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                actions.setSubmitting(false);
-              }, 1000);
-            }}
-            render={props => (
-              <Form>
+            onSubmit={_handleSubmit}
+          >
+            {props => (
+              <Form id={formId}>
                 {_renderStepContent(activeStep)}
 
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
+                    <Button onClick={_handleBack} className={classes.button}>
                       Back
                     </Button>
                   )}
                   <Button
+                    type="submit"
                     variant="contained"
                     color="primary"
-                    onClick={handleNext}
+                    // onClick={handleNext}
                     className={classes.button}
                   >
                     {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
@@ -95,7 +105,7 @@ export default function CheckoutPage() {
                 </div>
               </Form>
             )}
-          />
+          </Formik>
         )}
       </React.Fragment>
     </React.Fragment>
