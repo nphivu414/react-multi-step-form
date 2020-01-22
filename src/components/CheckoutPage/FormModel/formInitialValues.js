@@ -1,6 +1,17 @@
 import checkoutFormModel from './checkoutFormModel';
 const {
-  formField: { firstName, lastName, address1, city, zipcode, country }
+  formField: {
+    firstName,
+    lastName,
+    address1,
+    city,
+    zipcode,
+    country,
+    nameOnCard,
+    cardNumber,
+    expiryDate,
+    cvv
+  }
 } = checkoutFormModel;
 
 export default {
@@ -9,5 +20,9 @@ export default {
   [address1.name]: '',
   [city.name]: '',
   [zipcode.name]: '',
-  [country.name]: ''
+  [country.name]: '',
+  [nameOnCard.name]: '',
+  [cardNumber.name]: '',
+  [expiryDate.name]: '',
+  [cvv.name]: ''
 };

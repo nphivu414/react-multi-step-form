@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -28,22 +28,23 @@ function _renderStepContent(step) {
     case 2:
       return <ReviewOrder />;
     default:
-      throw new Error('Unknown step');
+      return <div>Not Found</div>;
   }
 }
 
 export default function CheckoutPage() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+  const currentValidationSchema = validationSchema[activeStep];
 
   function _submitForm(values, actions) {
     alert(JSON.stringify(values, null, 2));
     actions.setSubmitting(false);
   }
 
-  function _handleSubmit() {
+  function _handleSubmit(values, actions) {
     if (activeStep === steps.length - 1) {
-      _submitForm();
+      _submitForm(values, actions);
     } else {
       setActiveStep(activeStep + 1);
     }
@@ -80,7 +81,7 @@ export default function CheckoutPage() {
         ) : (
           <Formik
             initialValues={formInitialValues}
-            validationSchema={validationSchema}
+            validationSchema={currentValidationSchema}
             onSubmit={_handleSubmit}
           >
             {props => (
@@ -97,7 +98,6 @@ export default function CheckoutPage() {
                     type="submit"
                     variant="contained"
                     color="primary"
-                    // onClick={handleNext}
                     className={classes.button}
                   >
                     {activeStep === steps.length - 1 ? 'Place order' : 'Next'}

@@ -42,6 +42,26 @@ export default {
     useAddressForPaymentDetails: {
       name: 'useAddressForPaymentDetails',
       label: 'Use this address for payment details'
+    },
+    nameOnCard: {
+      name: 'nameOnCard',
+      label: 'Name on card*',
+      error: 'Name on card is required'
+    },
+    cardNumber: {
+      name: 'cardNumber',
+      label: 'Card number*',
+      error: 'Card Number is required'
+    },
+    expiryDate: {
+      name: 'expiryDate',
+      label: 'Expiry date*',
+      error: 'Expiry date is required'
+    },
+    cvv: {
+      name: 'cvv',
+      label: 'CVV*',
+      error: 'CVV is required'
     }
   }
 };
