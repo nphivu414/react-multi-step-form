@@ -9,6 +9,7 @@ import { Formik, Form } from 'formik';
 import AddressForm from './Forms/AddressForm';
 import PaymentForm from './Forms/PaymentForm';
 import ReviewOrder from './ReviewOrder';
+import CheckoutSuccess from './CheckoutSuccess';
 
 import validationSchema from './FormModel/validationSchema';
 import checkoutFormModel from './FormModel/checkoutFormModel';
@@ -36,14 +37,16 @@ export default function CheckoutPage() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const currentValidationSchema = validationSchema[activeStep];
+  const isLastStep = activeStep === steps.length - 1;
 
   function _submitForm(values, actions) {
     alert(JSON.stringify(values, null, 2));
     actions.setSubmitting(false);
+    setActiveStep(activeStep + 1);
   }
 
   function _handleSubmit(values, actions) {
-    if (activeStep === steps.length - 1) {
+    if (isLastStep) {
       _submitForm(values, actions);
     } else {
       setActiveStep(activeStep + 1);
@@ -68,16 +71,7 @@ export default function CheckoutPage() {
       </Stepper>
       <React.Fragment>
         {activeStep === steps.length ? (
-          <React.Fragment>
-            <Typography variant="h5" gutterBottom>
-              Thank you for your order.
-            </Typography>
-            <Typography variant="subtitle1">
-              Your order number is #2001539. We have emailed your order
-              confirmation, and will send you an update when your order has
-              shipped.
-            </Typography>
-          </React.Fragment>
+          <CheckoutSuccess />
         ) : (
           <Formik
             initialValues={formInitialValues}
@@ -100,7 +94,7 @@ export default function CheckoutPage() {
                     color="primary"
                     className={classes.button}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {isLastStep ? 'Place order' : 'Next'}
                   </Button>
                 </div>
               </Form>
