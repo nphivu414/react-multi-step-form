@@ -42,9 +42,15 @@ export default function CheckoutPage() {
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
 
-  function _submitForm(values, actions) {
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async function _submitForm(values, actions) {
+    await sleep(1000);
     alert(JSON.stringify(values, null, 2));
     actions.setSubmitting(false);
+
     setActiveStep(activeStep + 1);
   }
 
@@ -54,6 +60,7 @@ export default function CheckoutPage() {
     } else {
       setActiveStep(activeStep + 1);
       actions.setTouched({});
+      actions.setSubmitting(false);
     }
   }
 
@@ -92,14 +99,6 @@ export default function CheckoutPage() {
                       Back
                     </Button>
                   )}
-                  {/* <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                  >
-                    {isLastStep ? 'Place order' : 'Next'}
-                  </Button> */}
                   <div className={classes.wrapper}>
                     <Button
                       disabled={isSubmitting}
