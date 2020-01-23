@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import {
+  Stepper,
+  Step,
+  StepLabel,
+  Button,
+  Typography,
+  CircularProgress
+} from '@material-ui/core';
 import { Formik, Form } from 'formik';
 
 import AddressForm from './Forms/AddressForm';
@@ -50,6 +53,7 @@ export default function CheckoutPage() {
       _submitForm(values, actions);
     } else {
       setActiveStep(activeStep + 1);
+      actions.setTouched({});
     }
   }
 
@@ -78,7 +82,7 @@ export default function CheckoutPage() {
             validationSchema={currentValidationSchema}
             onSubmit={_handleSubmit}
           >
-            {props => (
+            {({ isSubmitting }) => (
               <Form id={formId}>
                 {_renderStepContent(activeStep)}
 
@@ -88,14 +92,31 @@ export default function CheckoutPage() {
                       Back
                     </Button>
                   )}
-                  <Button
+                  {/* <Button
                     type="submit"
                     variant="contained"
                     color="primary"
                     className={classes.button}
                   >
                     {isLastStep ? 'Place order' : 'Next'}
-                  </Button>
+                  </Button> */}
+                  <div className={classes.wrapper}>
+                    <Button
+                      disabled={isSubmitting}
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                    >
+                      {isLastStep ? 'Place order' : 'Next'}
+                    </Button>
+                    {isSubmitting && (
+                      <CircularProgress
+                        size={24}
+                        className={classes.buttonProgress}
+                      />
+                    )}
+                  </div>
                 </div>
               </Form>
             )}
