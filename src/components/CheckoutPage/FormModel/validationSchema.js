@@ -17,17 +17,23 @@ const {
 
 export default [
   Yup.object().shape({
-    [firstName.name]: Yup.string().required(`${firstName.label} is required`),
-    [lastName.name]: Yup.string().required(`${lastName.label} is required`),
-    [address1.name]: Yup.string().required(`${address1.label} is required`),
-    [city.name]: Yup.string().required(`${city.label} is required`),
-    [zipcode.name]: Yup.string().required(`${zipcode.label} is required`),
-    [country.name]: Yup.string().required(`${country.label} is required`)
+    [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),
+    [lastName.name]: Yup.string().required(`${lastName.requiredErrorMsg}`),
+    [address1.name]: Yup.string().required(`${address1.requiredErrorMsg}`),
+    [city.name]: Yup.string().required(`${city.requiredErrorMsg}`),
+    [zipcode.name]: Yup.string()
+      .required(`${zipcode.requiredErrorMsg}`)
+      .test(
+        'len',
+        `${zipcode.invalidErrorMsg}`,
+        val => val && val.length === 5
+      ),
+    [country.name]: Yup.string().required(`${country.requiredErrorMsg}`)
   }),
   Yup.object().shape({
-    [nameOnCard.name]: Yup.string().required(`${nameOnCard.label} is required`),
-    [cardNumber.name]: Yup.string().required(`${cardNumber.label} is required`),
-    [expiryDate.name]: Yup.string().required(`${expiryDate.label} is required`),
-    [cvv.name]: Yup.string().required(`${cvv.label} is required`)
+    [nameOnCard.name]: Yup.string().required(`${nameOnCard.requiredErrorMsg}`),
+    [cardNumber.name]: Yup.string().required(`${cardNumber.requiredErrorMsg}`),
+    [expiryDate.name]: Yup.string().required(`${expiryDate.requiredErrorMsg}`),
+    [cvv.name]: Yup.string().required(`${cvv.requiredErrorMsg}`)
   })
 ];

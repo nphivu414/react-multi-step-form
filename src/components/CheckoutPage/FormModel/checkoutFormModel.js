@@ -4,17 +4,17 @@ export default {
     firstName: {
       name: 'firstName',
       label: 'First name*',
-      error: 'First name is required'
+      requiredErrorMsg: 'First name is required'
     },
     lastName: {
       name: 'lastName',
       label: 'Last name*',
-      error: 'Last name is required'
+      requiredErrorMsg: 'Last name is required'
     },
     address1: {
       name: 'address1',
       label: 'Address Line 1*',
-      error: 'Address Line 1 is required'
+      requiredErrorMsg: 'Address Line 1 is required'
     },
     address2: {
       name: 'address2',
@@ -23,7 +23,7 @@ export default {
     city: {
       name: 'city',
       label: 'City*',
-      error: 'City is required'
+      requiredErrorMsg: 'City is required'
     },
     state: {
       name: 'state',
@@ -32,12 +32,13 @@ export default {
     zipcode: {
       name: 'zipcode',
       label: 'Zipcode*',
-      error: 'Zipcode is required'
+      requiredErrorMsg: 'Zipcode is required',
+      invalidErrorMsg: 'Zipcode is not valid'
     },
     country: {
       name: 'country',
       label: 'Country*',
-      error: 'Country is required'
+      requiredErrorMsg: 'Country is required'
     },
     useAddressForPaymentDetails: {
       name: 'useAddressForPaymentDetails',
@@ -46,22 +47,22 @@ export default {
     nameOnCard: {
       name: 'nameOnCard',
       label: 'Name on card*',
-      error: 'Name on card is required'
+      requiredErrorMsg: 'Name on card is required'
     },
     cardNumber: {
       name: 'cardNumber',
       label: 'Card number*',
-      error: 'Card Number is required'
+      requiredErrorMsg: 'Card Number is required'
     },
     expiryDate: {
       name: 'expiryDate',
       label: 'Expiry date*',
-      error: 'Expiry date is required'
+      requiredErrorMsg: 'Expiry date is required'
     },
     cvv: {
       name: 'cvv',
       label: 'CVV*',
-      error: 'CVV is required'
+      requiredErrorMsg: 'CVV is required'
     }
   }
 };

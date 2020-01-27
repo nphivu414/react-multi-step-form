@@ -1,6 +1,60 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { InputField, CheckboxField } from '../../FormFields';
+import { InputField, CheckboxField, SelectField } from '../../FormFields';
+
+const cities = [
+  {
+    label: 'None'
+  },
+  {
+    value: '1',
+    label: 'New York'
+  },
+  {
+    value: '2',
+    label: 'Chicago'
+  },
+  {
+    value: '3',
+    label: 'Saigon'
+  }
+];
+
+const states = [
+  {
+    label: 'None'
+  },
+  {
+    value: '1',
+    label: 'Florida'
+  },
+  {
+    value: '2',
+    label: 'Michigan'
+  },
+  {
+    value: '3',
+    label: 'Texas'
+  }
+];
+
+const countries = [
+  {
+    label: 'None'
+  },
+  {
+    value: '1',
+    label: 'United States'
+  },
+  {
+    value: '2',
+    label: 'Italy'
+  },
+  {
+    value: '3',
+    label: 'Vietnam'
+  }
+];
 
 export default function AddressForm(props) {
   const {
@@ -35,16 +89,31 @@ export default function AddressForm(props) {
           <InputField name={address2.name} label={address2.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <InputField name={city.name} label={city.label} fullWidth />
+          <SelectField
+            name={city.name}
+            label={city.label}
+            data={cities}
+            fullWidth
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <InputField name={state.name} label={state.label} fullWidth />
+          <SelectField
+            name={state.name}
+            label={state.label}
+            data={states}
+            fullWidth
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
           <InputField name={zipcode.name} label={zipcode.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <InputField name={country.name} label={country.label} fullWidth />
+          <SelectField
+            name={country.name}
+            label={country.label}
+            data={countries}
+            fullWidth
+          />
         </Grid>
         <Grid item xs={12}>
           <CheckboxField
