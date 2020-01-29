@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { InputField, CheckboxField } from '../../FormFields';
+import { InputField, DatePickerField } from '../../FormFields';
 
 export default function PaymentForm(props) {
   const {
@@ -28,21 +28,15 @@ export default function PaymentForm(props) {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <InputField
+          <DatePickerField
             name={expiryDate.name}
             label={expiryDate.label}
-            fullWidth
+            format="MM/yy"
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <InputField name={cvv.name} label={cvv.label} fullWidth />
         </Grid>
-        {/* <Grid item xs={12}>
-        <CheckboxField
-            name={useAddressForPaymentDetails.name}
-            label={useAddressForPaymentDetails.label}
-          />
-        </Grid> */}
       </Grid>
     </React.Fragment>
   );

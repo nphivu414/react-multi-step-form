@@ -52,12 +52,14 @@ export default {
     cardNumber: {
       name: 'cardNumber',
       label: 'Card number*',
-      requiredErrorMsg: 'Card Number is required'
+      requiredErrorMsg: 'Card number is required',
+      invalidErrorMsg: 'Card number is not valid'
     },
     expiryDate: {
       name: 'expiryDate',
       label: 'Expiry date*',
-      requiredErrorMsg: 'Expiry date is required'
+      requiredErrorMsg: 'Expiry date is required',
+      invalidErrorMsg: 'Expiry date is not valid'
     },
     cvv: {
       name: 'cvv',

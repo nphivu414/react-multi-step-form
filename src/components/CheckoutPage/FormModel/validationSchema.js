@@ -15,6 +15,9 @@ const {
   }
 } = checkoutFormModel;
 
+const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+const expiryDateRegEx = /^\d{2}\/\d{2}$/;
+
 export default [
   Yup.object().shape({
     [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),
@@ -32,8 +35,13 @@ export default [
   }),
   Yup.object().shape({
     [nameOnCard.name]: Yup.string().required(`${nameOnCard.requiredErrorMsg}`),
-    [cardNumber.name]: Yup.string().required(`${cardNumber.requiredErrorMsg}`),
-    [expiryDate.name]: Yup.string().required(`${expiryDate.requiredErrorMsg}`),
+    [cardNumber.name]: Yup.string()
+      .required(`${cardNumber.requiredErrorMsg}`)
+      .matches(visaRegEx, cardNumber.invalidErrorMsg),
+    [expiryDate.name]: Yup.string()
+      .nullable()
+      .required(`${expiryDate.requiredErrorMsg}`)
+      .matches(expiryDateRegEx, expiryDate.invalidErrorMsg),
     [cvv.name]: Yup.string().required(`${cvv.requiredErrorMsg}`)
   })
 ];

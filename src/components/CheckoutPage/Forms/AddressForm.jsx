@@ -4,6 +4,7 @@ import { InputField, CheckboxField, SelectField } from '../../FormFields';
 
 const cities = [
   {
+    value: undefined,
     label: 'None'
   },
   {
@@ -22,36 +23,38 @@ const cities = [
 
 const states = [
   {
+    value: undefined,
     label: 'None'
   },
   {
-    value: '1',
+    value: '11',
     label: 'Florida'
   },
   {
-    value: '2',
+    value: '22',
     label: 'Michigan'
   },
   {
-    value: '3',
+    value: '33',
     label: 'Texas'
   }
 ];
 
 const countries = [
   {
+    value: undefined,
     label: 'None'
   },
   {
-    value: '1',
+    value: '111',
     label: 'United States'
   },
   {
-    value: '2',
+    value: '222',
     label: 'Italy'
   },
   {
-    value: '3',
+    value: '333',
     label: 'Vietnam'
   }
 ];
