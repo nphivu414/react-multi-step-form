@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import useStyles from './styles';
 
-export default function Header(props) {
+export default function Header() {
   const classes = useStyles();
 
   return (
