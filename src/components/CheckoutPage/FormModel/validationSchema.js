@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import moment from 'moment';
 import checkoutFormModel from './checkoutFormModel';
 const {
   formField: {
@@ -16,7 +17,6 @@ const {
 } = checkoutFormModel;
 
 const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-const expiryDateRegEx = /^\d{2}\/\d{2}$/;
 
 export default [
   Yup.object().shape({
@@ -41,7 +41,19 @@ export default [
     [expiryDate.name]: Yup.string()
       .nullable()
       .required(`${expiryDate.requiredErrorMsg}`)
-      .matches(expiryDateRegEx, expiryDate.invalidErrorMsg),
-    [cvv.name]: Yup.string().required(`${cvv.requiredErrorMsg}`)
+      .test('expDate', expiryDate.invalidErrorMsg, val => {
+        if (val) {
+          const startDate = new Date();
+          const endDate = new Date(2050, 12, 31);
+          if (moment(val, moment.ISO_8601).isValid()) {
+            return moment(val).isBetween(startDate, endDate);
+          }
+          return false;
+        }
+        return false;
+      }),
+    [cvv.name]: Yup.string()
+      .required(`${cvv.requiredErrorMsg}`)
+      .test('len', `${cvv.invalidErrorMsg}`, val => val && val.length === 3)
   })
 ];

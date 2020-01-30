@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { Typography, Grid } from '@material-ui/core';
 import useStyles from './styles';
 
@@ -41,7 +42,9 @@ function PaymentDetails(props) {
             <Typography gutterBottom>Expiry Date</Typography>
           </Grid>
           <Grid item xs={6}>
-            <Typography gutterBottom>{expiryDate}</Typography>
+            <Typography gutterBottom>
+              {moment(expiryDate).format('MM/YY')}
+            </Typography>
           </Grid>
         </React.Fragment>
       </Grid>

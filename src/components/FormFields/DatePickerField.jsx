@@ -11,23 +11,16 @@ export default function DatePickerField(props) {
   const [field, meta, helper] = useField(props);
   const { touched, error } = meta;
   const { setValue } = helper;
-  const isError = touched && error && true;
-  console.log('TCL: DatePickerField -> meta', meta);
-  console.log('TCL: DatePickerField -> field', field);
-  const [selectedDate, setSelectedDate] = useState(
-    new Date('2020-01-29T12:11:54')
-  );
+  let isError = touched && error && true;
+  const [selectedDate, setSelectedDate] = useState(null);
 
   function _onChange(date) {
-    // setSelectedDate(date);
     if (date) {
+      setSelectedDate(date);
       try {
         const ISODateString = date.toISOString();
-        console.log('TCL: function_onChange -> ISODateString', ISODateString);
-        setSelectedDate(date);
         setValue(ISODateString);
       } catch (error) {
-        setSelectedDate(date);
         setValue(date);
       }
     } else {

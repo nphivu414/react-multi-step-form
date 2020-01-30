@@ -32,6 +32,9 @@ export default function PaymentForm(props) {
             name={expiryDate.name}
             label={expiryDate.label}
             format="MM/yy"
+            views={['year', 'month']}
+            minDate={new Date()}
+            maxDate={new Date('2050/12/31')}
           />
         </Grid>
         <Grid item xs={12} md={6}>

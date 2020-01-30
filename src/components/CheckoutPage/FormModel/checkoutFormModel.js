@@ -33,7 +33,7 @@ export default {
       name: 'zipcode',
       label: 'Zipcode*',
       requiredErrorMsg: 'Zipcode is required',
-      invalidErrorMsg: 'Zipcode is not valid'
+      invalidErrorMsg: 'Zipcode is not valid (e.g. 70000)'
     },
     country: {
       name: 'country',
@@ -53,7 +53,7 @@ export default {
       name: 'cardNumber',
       label: 'Card number*',
       requiredErrorMsg: 'Card number is required',
-      invalidErrorMsg: 'Card number is not valid'
+      invalidErrorMsg: 'Card number is not valid (e.g. 4111111111111)'
     },
     expiryDate: {
       name: 'expiryDate',
@@ -64,7 +64,8 @@ export default {
     cvv: {
       name: 'cvv',
       label: 'CVV*',
-      requiredErrorMsg: 'CVV is required'
+      requiredErrorMsg: 'CVV is required',
+      invalidErrorMsg: 'CVV is invalid (e.g. 357)'
     }
   }
 };
