@@ -35,6 +35,7 @@ export default function PaymentForm(props) {
             views={['year', 'month']}
             minDate={new Date()}
             maxDate={new Date('2050/12/31')}
+            fullWidth
           />
         </Grid>
         <Grid item xs={12} md={6}>
