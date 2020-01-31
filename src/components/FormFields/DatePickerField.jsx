@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useField } from 'formik';
 import Grid from '@material-ui/core/Grid';
 import {
@@ -11,8 +11,16 @@ export default function DatePickerField(props) {
   const [field, meta, helper] = useField(props);
   const { touched, error } = meta;
   const { setValue } = helper;
-  let isError = touched && error && true;
+  const isError = touched && error && true;
+  const { value } = field;
   const [selectedDate, setSelectedDate] = useState(null);
+
+  useEffect(() => {
+    if (value) {
+      const date = new Date(value);
+      setSelectedDate(date);
+    }
+  }, [value]);
 
   function _onChange(date) {
     if (date) {
