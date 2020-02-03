@@ -37,7 +37,7 @@ export default function DatePickerField(props) {
   }
 
   return (
-    <Grid container justify="space-around">
+    <Grid container>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
           {...field}
