@@ -42,7 +42,7 @@ const states = [
 
 const countries = [
   {
-    value: undefined,
+    value: null,
     label: 'None'
   },
   {
@@ -92,20 +92,20 @@ export default function AddressForm(props) {
           <InputField name={address2.name} label={address2.label} fullWidth />
         </Grid>
         <Grid item xs={12} sm={6}>
-          {/* <SelectField
+          <SelectField
             name={city.name}
             label={city.label}
             data={cities}
             fullWidth
-          /> */}
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
-          {/* <SelectField
+          <SelectField
             name={state.name}
             label={state.label}
             data={states}
             fullWidth
-          /> */}
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
           <InputField name={zipcode.name} label={zipcode.label} fullWidth />

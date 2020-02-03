@@ -23,7 +23,9 @@ export default [
     [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),
     [lastName.name]: Yup.string().required(`${lastName.requiredErrorMsg}`),
     [address1.name]: Yup.string().required(`${address1.requiredErrorMsg}`),
-    [city.name]: Yup.string().required(`${city.requiredErrorMsg}`),
+    [city.name]: Yup.string()
+      .nullable()
+      .required(`${city.requiredErrorMsg}`),
     [zipcode.name]: Yup.string()
       .required(`${zipcode.requiredErrorMsg}`)
       .test(
@@ -31,7 +33,9 @@ export default [
         `${zipcode.invalidErrorMsg}`,
         val => val && val.length === 5
       ),
-    [country.name]: Yup.string().required(`${country.requiredErrorMsg}`)
+    [country.name]: Yup.string()
+      .nullable()
+      .required(`${country.requiredErrorMsg}`)
   }),
   Yup.object().shape({
     [nameOnCard.name]: Yup.string().required(`${nameOnCard.requiredErrorMsg}`),
