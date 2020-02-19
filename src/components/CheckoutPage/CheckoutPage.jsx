@@ -42,12 +42,12 @@ export default function CheckoutPage() {
   const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
 
-  function sleep(ms) {
+  function _sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   async function _submitForm(values, actions) {
-    await sleep(1000);
+    await _sleep(1000);
     alert(JSON.stringify(values, null, 2));
     actions.setSubmitting(false);
 
