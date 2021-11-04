@@ -18,7 +18,7 @@ const {
 
 const visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 
-export default [
+const validationSchema = [
   Yup.object().shape({
     [firstName.name]: Yup.string().required(`${firstName.requiredErrorMsg}`),
     [lastName.name]: Yup.string().required(`${lastName.requiredErrorMsg}`),
@@ -61,3 +61,5 @@ export default [
       .test('len', `${cvv.invalidErrorMsg}`, val => val && val.length === 3)
   })
 ];
+
+export default validationSchema

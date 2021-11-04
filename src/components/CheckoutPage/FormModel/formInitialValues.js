@@ -1,4 +1,5 @@
 import checkoutFormModel from './checkoutFormModel';
+
 const {
   formField: {
     firstName,
@@ -15,7 +16,7 @@ const {
   }
 } = checkoutFormModel;
 
-export default {
+const formInitialValues = {
   [firstName.name]: '',
   [lastName.name]: '',
   [address1.name]: '',
@@ -28,3 +29,5 @@ export default {
   [expiryDate.name]: '',
   [cvv.name]: ''
 };
+
+export default formInitialValues
