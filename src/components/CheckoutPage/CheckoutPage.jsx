@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import "./CheckoutPage.css";
+//import {  ModalHeader } from 'reactstrap';
+//import { X } from 'react-feather';
 import {
   Stepper,
   Step,
@@ -8,38 +11,71 @@ import {
   CircularProgress
 } from '@material-ui/core';
 import { Formik, Form } from 'formik';
-
 import AddressForm from './Forms/AddressForm';
 import PaymentForm from './Forms/PaymentForm';
 import ReviewOrder from './ReviewOrder';
+import ResponsiveDatePickers from './ReviewOrder/ResponsiveDatePickers';
+import LastStep from './ReviewOrder/LastStep';
 import CheckoutSuccess from './CheckoutSuccess';
-
-import validationSchema from './FormModel/validationSchema';
+import StepProgramoneChild from './ReviewOrder/StepProgramoneChild';
+import StepProgramtwoChild from './ReviewOrder/StepProgramtwoChild'; 
+import StepDescriptiononeChild from './ReviewOrder/StepDescriptiononeChild';
+import StepDescriptiontwoChild from './ReviewOrder/StepDescriptiontwoChild';
+import ExistingCustomerStepone from './ReviewOrder/CleintInfo/ExistingCustomerStepone';
+import ExistingCustomerSteptwo from './ReviewOrder/CleintInfo/ExistingCustomerSteptwo';
+import NewCustomerStepone from './ReviewOrder/CleintInfo/NewCustomerStepone';
+import NewCustomerSteptwo from './ReviewOrder/CleintInfo/NewCustomerSteptwo';
+//import validationSchema from './FormModel/validationSchema';
 import checkoutFormModel from './FormModel/checkoutFormModel';
 import formInitialValues from './FormModel/formInitialValues';
-
 import useStyles from './styles';
+//import { upperCase } from 'lodash';
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['PROBLEM','','','DESCRIPTION','','','CLEINT INFO','','','','','APPOINTMENT','CONFIRM'];
 const { formId, formField } = checkoutFormModel;
+// const [modal, setmodal] = useState(false)
+//  const CloseBtn = (
+//   <X className="cursor-pointer" size={15} onClick={() => setmodal(!modal)} />
+// );
 
 function _renderStepContent(step) {
   switch (step) {
     case 0:
       return <AddressForm formField={formField} />;
     case 1:
-      return <PaymentForm formField={formField} />;
+      return <StepProgramoneChild />;
     case 2:
-      return <ReviewOrder />;
+      return <StepProgramtwoChild/>;
+    case 3:
+     return <PaymentForm formField={formField} />;
+    case 4:
+      return <StepDescriptiononeChild/>;
+    case 5:
+        return <StepDescriptiontwoChild/>;
+    case 6: 
+       return <ReviewOrder />;
+    case 7:
+       return <ExistingCustomerStepone/>;
+    case 8: 
+       return <ExistingCustomerSteptwo/>;
+    case 9:
+      return <NewCustomerStepone/>;
+    case 10:
+      return <NewCustomerSteptwo/>;
+    case 11:
+        return <ResponsiveDatePickers/>;
+    case 12:
+      return <LastStep/>;
     default:
-      return <div>Not Found</div>;
+      return;
+      // return <div>Not Found</div>;
   }
 }
 
 export default function CheckoutPage() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
-  const currentValidationSchema = validationSchema[activeStep];
+  //const currentValidationSchema = validationSchema[activeStep];
   const isLastStep = activeStep === steps.length - 1;
 
   function _sleep(ms) {
@@ -70,14 +106,25 @@ export default function CheckoutPage() {
 
   return (
     <React.Fragment>
-      <Typography component="h1" variant="h4" align="center">
-        Checkout
-      </Typography>
+    <Typography style={{
+      backgroundColor: '#fff',
+      color: 'black',
+      padding: '13px',
+      fontFamily: 'Poppins',
+      fontStyle: 'normal',
+      fontWeight: '600',
+      fontSize: '12px',
+      lineHeight: '16px',
+      letterSpacing: '0.1em',
+      textTransform: 'upperCase'
+      }}>
+    CREATE APPOINTMENT
+    </Typography>
       <Stepper activeStep={activeStep} className={classes.stepper}>
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
-          </Step>
+          </Step> 
         ))}
       </Stepper>
       <React.Fragment>
@@ -86,16 +133,18 @@ export default function CheckoutPage() {
         ) : (
           <Formik
             initialValues={formInitialValues}
-            validationSchema={currentValidationSchema}
+            //validationSchema={currentValidationSchema}
             onSubmit={_handleSubmit}
           >
             {({ isSubmitting }) => (
-              <Form id={formId}>
+              <Form id={formId}
+              
+              >
                 {_renderStepContent(activeStep)}
 
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
-                    <Button onClick={_handleBack} className={classes.button}>
+                    <Button style={{color: 'black'}} onClick={_handleBack} className={classes.button}>
                       Back
                     </Button>
                   )}
@@ -107,12 +156,15 @@ export default function CheckoutPage() {
                       color="primary"
                       className={classes.button}
                     >
-                      {isLastStep ? 'Place order' : 'Next'}
+                      
+                      {isLastStep ? 'Place order' : 'Next' 
+                      }
                     </Button>
                     {isSubmitting && (
                       <CircularProgress
                         size={24}
                         className={classes.buttonProgress}
+                        
                       />
                     )}
                   </div>
