@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
@@ -6,7 +6,12 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
-const NewCustomerDetail = () => {
+const NewCustomerDetail = (props) => {
+  const { _setClientFormData, setIsNextdisabled } = props;
+
+  useEffect(() => {
+    setIsNextdisabled(false);
+  }, []);
   return (
     <div>
       <Typography variant="h6" gutterBottom>

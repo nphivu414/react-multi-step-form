@@ -63,7 +63,7 @@ export default function ButtonAppBar(props) {
             disabled={isNextdisabled || isSubmitting}
             type="submit"
           >
-            {isLastStep ? "Submit" : "Next"}
+            {isLastStep ? "Confirm appointment" : "Next"}
           </Button>
         ) : (
           ""

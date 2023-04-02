@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
-const ExistingCustomerDetail = () => {
+const ExistingCustomerDetail = (props) => {
+  const { _setClientFormData, setIsNextdisabled } = props;
+  const [accountPhoneNumber, setAccountPhoneNumber] = useState("");
+
+  useEffect(() => {
+    if (accountPhoneNumber === "") {
+      setIsNextdisabled(true);
+    } else {
+      setIsNextdisabled(false);
+    }
+  }, [accountPhoneNumber]);
+
   return (
     <div>
       <Typography variant="h6" gutterBottom>
@@ -36,9 +47,14 @@ const ExistingCustomerDetail = () => {
         </Typography>
 
         <TextField
+          name="accountPhoneNumber"
           id="input-with-icon-textfield"
           label="Account phone number"
           placeholder="Account phone number"
+          onChange={(event) => {
+            setAccountPhoneNumber(event.target.value);
+            _setClientFormData(event.target.name, event.target.value);
+          }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

@@ -8,9 +8,15 @@ const CustomerAddress = (props) => {
   return (
     <>
       {customerType === "newCustomer" ? (
-        <NewCustomerAddress />
+        <NewCustomerAddress
+          setIsNextdisabled={setIsNextdisabled}
+          _setClientFormData={_setClientFormData}
+        />
       ) : (
-        <ExistingCustomerAddress />
+        <ExistingCustomerAddress
+          setIsNextdisabled={setIsNextdisabled}
+          _setClientFormData={_setClientFormData}
+        />
       )}
     </>
   );

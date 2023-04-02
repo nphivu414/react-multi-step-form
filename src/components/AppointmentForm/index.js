@@ -16,7 +16,7 @@ import Client from "./Client";
 import Appointment from "./Appointment";
 import Confirm from "./Confirm";
 import Thanks from "./Thanks";
-//import validationSchema from './FormModel/validationSchema';
+//import validationSchema from "./FormModel/validationSchema";
 import AppointmentFormModel from "./FormModel/appointmentFormModel";
 import formInitialValues from "./FormModel/formInitialValues";
 import { steps, problemSteps, descriptionSteps, clientSteps } from "./steps";
@@ -40,7 +40,7 @@ export default function AppointmentForm() {
   );
   const [clientFormField, setClientFormField] = useState(clientIntialValues);
   // set default step for each
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(0);
   const [problemActiveStep, setProblemActiveStep] = useState(0);
   const [descriptionActiveStep, setDescriptionActiveStep] = useState(0);
   const [clientActiveStep, setClientActiveStep] = useState(0);
@@ -156,6 +156,7 @@ export default function AppointmentForm() {
             setDescriptionFormField={setDescriptionFormField}
             descriptionActiveStep={descriptionActiveStep}
             _handleNext={_handleNext}
+            setNextHide={setNextHide}
             setIsNextdisabled={setIsNextdisabled}
           />
         );
@@ -185,7 +186,7 @@ export default function AppointmentForm() {
 
   async function _submitForm(values, actions) {
     await _sleep(1000);
-    alert(JSON.stringify(values, null, 2));
+    // alert(JSON.stringify(values, null, 2));
     actions.setSubmitting(false);
 
     _handleNext();
@@ -247,7 +248,7 @@ export default function AppointmentForm() {
           {({ isSubmitting }) => (
             <Form id={formId}>
               {_renderStepContent(activeStep)}
-              {activeStep !== 0 && (
+              {activeStep !== 0 && activeStep !== steps.length && (
                 <ButtonAppBar
                   nextHide={nextHide}
                   _handleBack={_handleBack}

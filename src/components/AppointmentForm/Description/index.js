@@ -10,7 +10,12 @@ export default function Problem(props) {
     descriptionFormField,
     setDescriptionFormField,
     setIsNextdisabled,
+    setNextHide,
   } = props;
+
+  useEffect(() => {
+    setNextHide(false);
+  }, []);
 
   function _setDescriptionFormData(keyName, value) {
     setDescriptionFormField({ ...descriptionFormField, [keyName]: value });

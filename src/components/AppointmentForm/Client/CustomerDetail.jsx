@@ -17,9 +17,15 @@ const CustomerDetail = (props) => {
   return (
     <>
       {customerType === "newCustomer" ? (
-        <NewCustomerDetail />
+        <NewCustomerDetail
+          setIsNextdisabled={setIsNextdisabled}
+          _setClientFormData={_setClientFormData}
+        />
       ) : (
-        <ExistingCustomerDetail />
+        <ExistingCustomerDetail
+          setIsNextdisabled={setIsNextdisabled}
+          _setClientFormData={_setClientFormData}
+        />
       )}
     </>
   );
