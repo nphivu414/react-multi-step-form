@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Typography } from '@material-ui/core';
 //import { InputField, CheckboxField, SelectField } from '../../FormFields';
 //import Card from '@material-ui/core/Card';
@@ -27,17 +27,21 @@ import StepProgramoneChild from '../ReviewOrder/StepProgramoneChild';
 
  //const [rSelected, setRSelected] = useState();
 
-const handleclick = () => { 
+// const handleclick = () => { 
    
-  console.log(<StepProgramoneChild/>)
-  // return ;
-  // return (<StepProgramoneChild/>);
-};
+//   console.log(<StepProgramoneChild/>)
+//   // return ;
+//   // return (<StepProgramoneChild/>);
+// };
 
 const AddressForm = () => {
-  
+   
+  const[show , setShow ] =useState(false);
+
   return (
+    
     <React.Fragment>
+      {show && <StepProgramoneChild/>}
       <Typography variant="h6" gutterBottom>
       What do you need help with?
       </Typography>
@@ -69,7 +73,7 @@ const AddressForm = () => {
               disableIcon
               value={item}
               label={item}
-              onClick={handleclick}
+              onClick ={() => setShow(!show)}
               sx={{ flexGrow: 1, flexDirection: 'row-reverse' }}
               slotProps={{
                 action: ({ checked }) => ({
@@ -88,75 +92,7 @@ const AddressForm = () => {
      
     </RadioGroup>
      
-      {/* <div className='cardname'>
-      <Card>
-      <CardContent>
-      Plumbing
-      </CardContent>
-    </Card>
-    <Card>
-      <CardContent>
-      Heating & Air
-      </CardContent>
-    </Card>
-    <Card>
-      <CardContent>
-      Electrical
-      </CardContent>
-    </Card>
-     
-    </div> */}
-      {/* <RadioGroup
-      aria-label="platform"
-      defaultValue="Website"
-      overlay
-      name="platform"
-      sx={{
-        flexDirection: 'row',
-        gap: 2,
-        [`& .${radioClasses.checked}`]: {
-          [`& .${radioClasses.action}`]: {
-            inset: -1,
-            border: '3px solid',
-            borderColor: 'primary.500',
-          },
-        },
-        [`& .${radioClasses.radio}`]: {
-          display: 'contents',
-          '& >': {
-            zIndex: 2,
-            position: 'absolute',
-            top: '-8px',
-            right: '-8px',
-            bgcolor: 'background.body',
-            borderRadius: '50%',
-          },
-        },
-      }}
-    >
-      {['Website', 'Documents', 'Social Account'].map((value) => (
-        <Sheet
-          key={value}
-          variant="outlined"
-          sx={{
-            borderRadius: 'md',
-            bgcolor: 'background.body',
-            boxShadow: 'sm',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 1.5,
-            p: 2,
-            minWidth: 120,
-          }}
-        >
-          <Radio id={value} value={value} disableIcon />
-           <Avatar variant="soft" size="sm" />  
-          <FormLabel htmlFor={value}>{value}</FormLabel>
-        </Sheet>
-      ))}
-    </RadioGroup> */}
-  
+ 
     </React.Fragment>
   );
 }

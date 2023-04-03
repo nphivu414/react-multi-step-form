@@ -10,6 +10,7 @@ import {
   Typography,
   CircularProgress
 } from '@material-ui/core';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { Formik, Form } from 'formik';
 import AddressForm from './Forms/AddressForm';
 import PaymentForm from './Forms/PaymentForm';
@@ -31,40 +32,41 @@ import formInitialValues from './FormModel/formInitialValues';
 import useStyles from './styles';
 //import { upperCase } from 'lodash';
 
-const steps = ['PROBLEM','','','DESCRIPTION','','','CLEINT INFO','','','','','APPOINTMENT','CONFIRM'];
+const steps = ['PROBLEM','DESCRIPTION','CLEINT INFO','APPOINTMENT','CONFIRM']
 const { formId, formField } = checkoutFormModel;
 // const [modal, setmodal] = useState(false)
 //  const CloseBtn = (
 //   <X className="cursor-pointer" size={15} onClick={() => setmodal(!modal)} />
-// );
+// );     
 
 function _renderStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm formField={formField} />;
+      return <AddressForm/>;
+      // return [<AddressForm formField={formField} />,<StepProgramoneChild />,<StepProgramtwoChild/>];
+    // case 1:
+    //   return <StepProgramoneChild />;
+    // case 2:
+    //   return <StepProgramtwoChild/>;
     case 1:
-      return <StepProgramoneChild />;
-    case 2:
-      return <StepProgramtwoChild/>;
+     return [<PaymentForm formField={formField} />,<StepDescriptiononeChild/>,<StepDescriptiontwoChild/>];
+    // case 4:
+    //   return <StepDescriptiononeChild/>;
+    // case 5:
+    //     return <StepDescriptiontwoChild/>;
+    case 2: 
+       return [<ReviewOrder />,<ExistingCustomerStepone/>,<ExistingCustomerSteptwo/>,<NewCustomerStepone/>,<NewCustomerSteptwo/>];
+    // case 7:
+    //    return <ExistingCustomerStepone/>;
+    // case 8: 
+    //    return <ExistingCustomerSteptwo/>;
+    // case 9:
+    //   return <NewCustomerStepone/>;
+    // case 10:
+    //   return <NewCustomerSteptwo/>;
     case 3:
-     return <PaymentForm formField={formField} />;
-    case 4:
-      return <StepDescriptiononeChild/>;
-    case 5:
-        return <StepDescriptiontwoChild/>;
-    case 6: 
-       return <ReviewOrder />;
-    case 7:
-       return <ExistingCustomerStepone/>;
-    case 8: 
-       return <ExistingCustomerSteptwo/>;
-    case 9:
-      return <NewCustomerStepone/>;
-    case 10:
-      return <NewCustomerSteptwo/>;
-    case 11:
         return <ResponsiveDatePickers/>;
-    case 12:
+    case 4:
       return <LastStep/>;
     default:
       return;
@@ -106,6 +108,8 @@ export default function CheckoutPage() {
 
   return (
     <React.Fragment>
+      <div 
+      style={{display: 'flex', justifyContent: 'space-between', boxShadow: ' 0px 4px 41px rgba(0, 0, 0, 0.75)'}}>
     <Typography style={{
       backgroundColor: '#fff',
       color: 'black',
@@ -120,6 +124,10 @@ export default function CheckoutPage() {
       }}>
     CREATE APPOINTMENT
     </Typography>
+
+    <Button style={{color: 'black'}} startIcon={<CancelOutlinedIcon />}>
+      </Button>
+    </div>
       <Stepper activeStep={activeStep} className={classes.stepper}>
         {steps.map(label => (
           <Step key={label}>
@@ -157,7 +165,7 @@ export default function CheckoutPage() {
                       className={classes.button}
                     >
                       
-                      {isLastStep ? 'Place order' : 'Next' 
+                      {isLastStep ? 'Confirm appointment' : 'Next' 
                       }
                     </Button>
                     {isSubmitting && (
