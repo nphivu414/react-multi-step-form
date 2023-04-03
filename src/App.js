@@ -1,15 +1,12 @@
-import React from 'react';
-import MaterialLayout from './components/Layout/MaterialLayout';
-import CheckoutPage from './components/CheckoutPage';
+import React from "react";
+import MaterialLayout from "./components/Layout/MaterialLayout";
+import AppointmentForm from "./components/AppointmentForm";
 
 function App() {
   return (
-    <div  style={{ backgroundImage: " url(/imag.png)" }}>
-     
-      <MaterialLayout>
-        <CheckoutPage />
-      </MaterialLayout>
-    </div>
+    <MaterialLayout>
+      <AppointmentForm />
+    </MaterialLayout>
   );
 }
 
