@@ -1,14 +1,20 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 
 const ExistingCustomerAddress = () => {
   return (
-    <div>
+    <div style={{height: '528px'}}>
       <Typography variant="h6" gutterBottom>
         Address where our team is needed
+        <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '0px'}}></hr>
       </Typography>
 
       <RadioGroup
@@ -31,6 +37,21 @@ const ExistingCustomerAddress = () => {
           control={<Radio />}
         />
       </RadioGroup>
+
+      <Button style={{border: '1px solid #007BFF',
+    color: '#007BFF',
+    background: '#E2F0FF',
+    borderRadius: '500px',
+    padding: '6px 12px',
+    marginLeft: '30px',
+    marginTop: '10px'}}>
+      <span style={{fontStyle: 'normal',
+      fontSeight: '600',
+      fontSize: '12px',
+      letterSpacing: '0.1em'
+    }}>ADD NEW ADDRESS</span></Button>
+
+
     </div>
   );
 };

@@ -5,31 +5,40 @@ import ConstructionIcon from "@mui/icons-material/Construction";
 import EventIcon from "@mui/icons-material/Event";
 import RepeatIcon from "@mui/icons-material/Repeat";
 
+
 const ServiceTypeStep = (props) => {
   const { _setProblemFormData, _handleNextStep } = props;
 
   const serviceTypeList = [
     {
       id: 1,
-      label: "Repair and service",
+      label: <span style={{fontWeight: '600',fontSize: '18px'}}>Repair and service</span>,
       icon: <ConstructionIcon />,
     },
     {
       id: 2,
-      label: "New equipment estimate",
+      label: <span style={{fontWeight: '600',fontSize: '18px'}}>New equipment estimate</span>,
       icon: <RepeatIcon />,
     },
     {
       id: 3,
-      label: "Preventive maintenance",
+      label: <span style={{fontWeight: '600',fontSize: '18px'}}>Preventive maintenance</span>,
       icon: <EventIcon />,
     },
   ];
 
   return (
-    <div style={{ backgroundColor: "#F2F0FA", height: "593px" }}>
+    
+    // <div style={{ backgroundColor: "#F2F0FA" }}>
+    <div className="bgcover" style={{height: '593px',backgroundColor: '#F2F0FA'}}>
       <Typography variant="h6" gutterBottom style={{ textAlign: "center" }}>
         What type of service do you need?
+        <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '14.5rem'
+    }}></hr>
       </Typography>
 
       <div
@@ -37,13 +46,14 @@ const ServiceTypeStep = (props) => {
           display: "flex",
           flexDirection: "column",
           gap: "22px",
-          backgroundColor: "#F2F0FA",
           justifyContent: "center",
         }}
       >
         {React.Children.toArray(
           serviceTypeList.map((item) => (
             <Button
+           
+              className="Servicetype"
               name="serviceType"
               key={item?.id}
               value={item?.label}
@@ -56,6 +66,10 @@ const ServiceTypeStep = (props) => {
               style={{
                 marginRight: "auto",
                 marginLeft: "auto",
+                color: 'black',
+                fontFamily: 'poppins',
+                fontWeight: '600',
+                letterSpacing:' 0.05em'
               }}
             >
               {item?.label}

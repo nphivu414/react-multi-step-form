@@ -13,12 +13,17 @@ const NewCustomerDetail = (props) => {
     setIsNextdisabled(false);
   }, []);
   return (
-    <div>
+    <div style={{height: '528px'}}>
       <Typography variant="h6" gutterBottom>
         New customer
+        <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '0px'}}></hr>
       </Typography>
 
-      <div
+      <div className="text-area"
         style={{
           display: "flex",
           flexDirection: "column",

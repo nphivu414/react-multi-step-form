@@ -14,12 +14,17 @@ const NewCustomerAddress = () => {
     setState(event.target.value);
   };
   return (
-    <div>
+    <div style={{height: '528px'}}>
       <Typography variant="h6" gutterBottom>
         Address where our team is needed
+        <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '0px'}}></hr>
       </Typography>
 
-      <div
+      <div className="text-area"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -136,7 +141,7 @@ const NewCustomerAddress = () => {
           </FormControl>
         </div>
 
-        <div
+        <div className="checked"
           style={{
             display: "flex",
             flexDirection: "row",

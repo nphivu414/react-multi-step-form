@@ -9,6 +9,7 @@ export default function CustomerType(props) {
 
   return (
     <React.Fragment>
+      <div  style={{height: '529px' }}>
       <div className="rectangle">
         <Typography variant="h5">FIX</Typography>
       </div>
@@ -21,7 +22,7 @@ export default function CustomerType(props) {
             _handleNextStep();
           }}
           className="exist"
-          style={{ background: "#007BFF" }}
+          style={{ background: "#007BFF"}}
         >
           I am an existing customer
         </Button>
@@ -36,6 +37,7 @@ export default function CustomerType(props) {
         >
           I am a new customer
         </Button>
+      </div>
       </div>
     </React.Fragment>
   );

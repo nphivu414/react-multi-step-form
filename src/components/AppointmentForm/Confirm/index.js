@@ -9,8 +9,14 @@ import Checkbox from "@mui/material/Checkbox";
 export default function Confirm() {
   return (
     <React.Fragment>
+      <div  style={{height: '528px'}}>
       <Typography variant="h6" gutterBottom>
         Please review and confirm appointment
+          <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '0px'}}></hr>
       </Typography>
 
       <Grid
@@ -122,6 +128,7 @@ export default function Confirm() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
         interdum, diam vel fermentum posuere, enim massa.
       </Typography>
+      </div>
     </React.Fragment>
   );
 }

@@ -20,12 +20,28 @@ const AdditonalInfoStep = (props) => {
   }, [AdditionalInfo]);
 
   return (
-    <div>
+    <div  style={{height: '529px' }}>
+      <Typography variant="p" style={{ top: '19px',
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    paddingLeft: '25px',
+    fontSize: '13px',
+    color:' #007BFF',
+    lineHeight: '16px',
+    position: 'relative'}}>
+      Heating & Air - Water leak from HVAC unit - Repair and service
+      </Typography>
       <Typography variant="h6" gutterBottom>
         Additional information
+        <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '0px'}}></hr>
       </Typography>
 
-      <div style={{ width: "512px", margin: "auto" }}>
+      <div className="text-para" style={{ width: "512px", margin: "auto" }}>
         <Typography
           variant="p"
           style={{
@@ -41,7 +57,7 @@ const AdditonalInfoStep = (props) => {
           or issues you are facing.
         </Typography>
       </div>
-      <div style={{ width: "512px", paddingTop: "32px", margin: "auto" }}>
+      <div className="text-area" style={{ width: "512px", paddingTop: "32px", margin: "auto" }}>
         <TextField
           name="AdditionalInfo"
           onChange={handleChange}

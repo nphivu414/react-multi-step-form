@@ -14,6 +14,12 @@ function Thanks() {
           gutterBottom
         >
           Thank you, appointment created
+          <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '16rem'
+    }}></hr>
         </Typography>
 
         <div

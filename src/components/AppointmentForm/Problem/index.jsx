@@ -4,6 +4,10 @@ import ServiceStep from "./ServiceStep";
 import ServiceTypeStep from "./ServiceTypeStep";
 import IssuesStep from "./IssuesStep";
 import useStyles from "../styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+//import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// import WestIcon from '@mui/icons-material/West';
 
 export default function Problem(props) {
   const {
@@ -60,13 +64,63 @@ export default function Problem(props) {
         {problemActiveStep !== 0 && (
           <>
             {problemActiveStep === 1 ? (
-              <Button variant="contained" color="primary" onClick={_handleBack}>
-                upper Back
+              <Button
+                startIcon={<FontAwesomeIcon icon={faArrowLeftLong} />}
+                style={{
+                  borderRadius: "500px",
+                  border: " 1px solid #007BFF",
+                  top: "24rem",
+                  position: "absolute",
+                  color: "#007BFF",
+                  padding: "2px 16px",
+                  backgroundColor: "#E2F0FF",
+                  left: "14rem",
+                }}
+                variant="contained"
+                color="primary"
+                onClick={_handleBack}
+              >
+                <span
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    padding: "4px 2px",
+                  }}
+                >
+                  Back
+                </span>
               </Button>
             ) : (
-              <Button variant="contained" color="primary" onClick={_handleBack}>
-                bottom Back
-              </Button>
+              <div
+                style={{ position: "relative", bottom: "38px", width: "100%" }}
+              >
+                <Button
+                  startIcon={<FontAwesomeIcon icon={faArrowLeftLong} />}
+                  style={{
+                    borderRadius: "500px",
+                    padding: "2px 16px",
+                    position: "absolute",
+
+                    background: "#FFFFFF",
+                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.09)",
+                    backgroundColor: "#fff",
+                    left: "1rem",
+                  }}
+                  variant="contained"
+                  color="primary"
+                  onClick={_handleBack}
+                >
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      padding: "4px 2px",
+                    }}
+                  >
+                    Back
+                  </span>
+                </Button>
+              </div>
             )}
           </>
         )}

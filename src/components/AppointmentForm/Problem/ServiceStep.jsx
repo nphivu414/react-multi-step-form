@@ -14,7 +14,14 @@ const ServiceStep = (props) => {
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         What do you need help with?
+        <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    borderColor: '#1F2327',
+    marginLeft: '0px'}}></hr>
       </Typography>
+      
 
       <RadioGroup
         aria-label="Your plan"

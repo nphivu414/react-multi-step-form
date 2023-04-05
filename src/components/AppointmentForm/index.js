@@ -8,6 +8,8 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+
 import { Formik, Form } from "formik";
 import ButtonAppBar from "./ButtonAppBar";
 import Problem from "./Problem";
@@ -209,7 +211,9 @@ export default function AppointmentForm() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          padding: 8,
+          height: '40px',
+          position: 'relative',
+          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.05)'
         }}
       >
         <Typography
@@ -228,8 +232,8 @@ export default function AppointmentForm() {
         >
           CREATE APPOINTMENT
         </Typography>
-        <Button variant="contained" size="small">
-          <span aria-hidden="true">&times;</span>
+        <Button style={{color: 'black'}}startIcon={<CancelOutlinedIcon />}>       
+          {/* <span aria-hidden="true">&times;</span> */}
         </Button>
       </Box>
       <Stepper activeStep={activeStep} className={classes.stepper}>
