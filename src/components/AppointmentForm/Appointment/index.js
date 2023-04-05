@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 import { Typography } from "@material-ui/core";
 import "react-calendar/dist/Calendar.css";
+//import Calendar from '../Appointment/Calendar';
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -10,13 +11,13 @@ function Appointment() {
   const [value, onChange] = useState(new Date());
 
   return (
-    <div>
+    <div style={{height: '528px'}}>
+      {/* <Calendar/> */}
       <Calendar onChange={onChange} value={value} />
-
-      <div
+      <div className="radio-text"
         style={{
           background: "#F2F0FA",
-          height: "50vh",
+          height: '215px'
         }}
       >
         <RadioGroup

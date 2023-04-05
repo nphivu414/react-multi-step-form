@@ -16,8 +16,25 @@ export default function SystemAgeStep(props) {
 
   return (
     <React.Fragment>
+      <div style={{height: '528px'}}>
+      <Typography variant="p" style={{ top: '19px',
+    fontFamily: 'Poppins',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    paddingLeft: '25px',
+    fontSize: '13px',
+    color:' #007BFF',
+    lineHeight: '16px',
+    position: 'relative'}}>
+      Heating & Air - Water leak from HVAC unit - Repair and service
+      </Typography>
       <Typography variant="h6" gutterBottom>
         What is the approximate age of your system?
+        <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '0px'}}></hr>
       </Typography>
 
       <RadioGroup
@@ -57,6 +74,7 @@ export default function SystemAgeStep(props) {
                     fontWeight: "lg",
                     fontSize: "md",
                     color: checked ? "text.primary" : "text.secondary",
+                   
                   },
                 }),
                 action: ({ checked }) => ({
@@ -77,6 +95,12 @@ export default function SystemAgeStep(props) {
       </RadioGroup>
       <Typography variant="h6" gutterBottom>
         Where is the leaking unit located?
+        <hr style={{width: '29px',
+    padding: '1px',
+    border: 'none',
+    background: '#007BFF',
+    marginLeft: '0px',
+    marginTop: '5px'}}></hr>
       </Typography>
       <RadioGroup
         aria-labelledby="storage-label"
@@ -136,6 +160,7 @@ export default function SystemAgeStep(props) {
           </Sheet>
         ))}
       </RadioGroup>
+      </div>
     </React.Fragment>
   );
 }

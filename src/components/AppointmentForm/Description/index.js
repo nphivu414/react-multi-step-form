@@ -52,5 +52,5 @@ export default function Problem(props) {
 
   return (
     <React.Fragment>{_renderStepContent(descriptionActiveStep)}</React.Fragment>
-  );
+  ); 
 }
