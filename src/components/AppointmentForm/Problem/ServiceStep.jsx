@@ -1,8 +1,10 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
 import Radio from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Sheet from "@mui/joy/Sheet";
+import { Heating } from "../../Icons";
+import { SvgIcon } from "@mui/material";
 
 const ServiceStep = (props) => {
   const services = ["Plumbing", "Heating & Air", "Electrical"];
@@ -28,34 +30,39 @@ const ServiceStep = (props) => {
         }}
       >
         {services.map((value) => (
-          <Sheet
-            key={value}
-            sx={{ boxShadow: "sm", bgcolor: "background.body" }}
-          >
-            <Radio
-              overlay
-              disableIcon
-              name="service"
-              value={value}
-              label={value}
-              onClick={(event) => {
-                _setProblemFormData(event.target.name, event.target.value);
-                _handleNextStep();
-              }}
-              sx={{ flexGrow: 1, flexDirection: "row-reverse" }}
-              slotProps={{
-                action: ({ checked }) => ({
-                  sx: (theme) => ({
-                    ...(checked && {
-                      inset: -1,
-                      border: "2px solid",
-                      borderColor: theme.vars.palette.primary[500],
+          <Box>
+            <Box position="absolute">
+              <SvgIcon component={Heating} />
+            </Box>
+            <Sheet
+              key={value}
+              sx={{ boxShadow: "sm", bgcolor: "background.body" }}
+            >
+              <Radio
+                overlay
+                disableIcon
+                name="service"
+                value={value}
+                label={value}
+                onClick={(event) => {
+                  _setProblemFormData(event.target.name, event.target.value);
+                  _handleNextStep();
+                }}
+                sx={{ flexGrow: 1, flexDirection: "row-reverse" }}
+                slotProps={{
+                  action: ({ checked }) => ({
+                    sx: (theme) => ({
+                      ...(checked && {
+                        inset: -1,
+                        border: "2px solid",
+                        borderColor: theme.vars.palette.primary[500],
+                      }),
                     }),
                   }),
-                }),
-              }}
-            />
-          </Sheet>
+                }}
+              />
+            </Sheet>
+          </Box>
         ))}
       </RadioGroup>
     </React.Fragment>

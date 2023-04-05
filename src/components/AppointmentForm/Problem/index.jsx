@@ -58,9 +58,17 @@ export default function Problem(props) {
       {_renderStepContent(problemActiveStep)}
       <div>
         {problemActiveStep !== 0 && (
-          <Button variant="contained" color="primary" onClick={_handleBack}>
-            Back
-          </Button>
+          <>
+            {problemActiveStep === 1 ? (
+              <Button variant="contained" color="primary" onClick={_handleBack}>
+                upper Back
+              </Button>
+            ) : (
+              <Button variant="contained" color="primary" onClick={_handleBack}>
+                bottom Back
+              </Button>
+            )}
+          </>
         )}
       </div>
     </React.Fragment>
