@@ -3,7 +3,8 @@ body {
   background-color: #f5f5f5 !important;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 50%; /* set your desired background color */
+  height: 100vh;
+  /*background-position: 50% 50%; /* set your desired background color */
   /* set the height to 100% of the viewport height */
   margin: 0;
   font-family: "Poppins";

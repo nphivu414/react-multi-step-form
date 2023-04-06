@@ -16,6 +16,7 @@ export default function Problem(props) {
     setProblemActiveStep,
     setProblemFormField,
     problemFormField,
+    setActiveStepColor,
   } = props;
   const classes = useStyles();
 
@@ -36,6 +37,7 @@ export default function Problem(props) {
           <ServiceStep
             _setProblemFormData={_setProblemFormData}
             _handleNextStep={_handleNext}
+            setActiveStepColor={setActiveStepColor}
           />
         );
       case 1:
@@ -43,6 +45,7 @@ export default function Problem(props) {
           <ServiceTypeStep
             _setProblemFormData={_setProblemFormData}
             _handleNextStep={_handleNext}
+            setActiveStepColor={setActiveStepColor}
           />
         );
       case 2:
@@ -50,6 +53,7 @@ export default function Problem(props) {
           <IssuesStep
             _setProblemFormData={_setProblemFormData}
             _handleNext={_handleNext}
+            setActiveStepColor={setActiveStepColor}
           />
         );
       default:

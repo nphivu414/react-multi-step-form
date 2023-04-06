@@ -8,7 +8,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import { theme, useStyle } from "./styles";
 
 export default function MaterialLayout(props) {
-  const { children } = props;
+  const { children, activeStepColor } = props;
   const classes = useStyle();
 
   return (
@@ -16,7 +16,15 @@ export default function MaterialLayout(props) {
       <CssBaseline />
       {/* <Header /> */}
       <div className={classes.root}>
-        <Paper className={classes.paper}>{children}</Paper>
+        <Paper
+          style={{
+            backgroundColor: activeStepColor,
+          }}
+          className={classes.paper}
+        >
+          {" "}
+          {children}
+        </Paper>
       </div>
       {/* <Footer /> */}
     </ThemeProvider>

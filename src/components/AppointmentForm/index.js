@@ -8,7 +8,8 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import { SvgIcon } from "@mui/material";
+import { CrossIcon } from "../Icons";
 
 import { Formik, Form } from "formik";
 import ButtonAppBar from "./ButtonAppBar";
@@ -26,7 +27,8 @@ import useStyles from "./styles";
 
 const { formId } = AppointmentFormModel;
 
-export default function AppointmentForm() {
+export default function AppointmentForm(props) {
+  const { setActiveStepColor } = props;
   const classes = useStyles();
   const {
     problemIntialValues,
@@ -53,10 +55,6 @@ export default function AppointmentForm() {
   const isDescriptionLastStep =
     descriptionActiveStep === descriptionSteps.length - 1;
   const isClientLastStep = clientActiveStep === clientSteps.length - 1;
-
-  useEffect(() => {
-    console.log(clientFormField, "clientFormField");
-  }, [clientFormField]);
 
   function _handleNext() {
     switch (activeStep) {
@@ -149,6 +147,7 @@ export default function AppointmentForm() {
             setProblemFormField={setProblemFormField}
             _handleNext={_handleNext}
             setIsNextdisabled={setIsNextdisabled}
+            setActiveStepColor={setActiveStepColor}
           />
         );
       case 1:
@@ -211,14 +210,14 @@ export default function AppointmentForm() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          height: '40px',
-          position: 'relative',
-          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.05)'
+          height: "40px",
+          position: "relative",
+          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.05)",
+          backgroundColor: "#fff",
         }}
       >
         <Typography
           style={{
-            backgroundColor: "#fff",
             color: "black",
             padding: "13px",
             fontFamily: "Poppins",
@@ -232,11 +231,36 @@ export default function AppointmentForm() {
         >
           CREATE APPOINTMENT
         </Typography>
-        <Button style={{color: 'black'}}startIcon={<CancelOutlinedIcon />}>       
-          {/* <span aria-hidden="true">&times;</span> */}
-        </Button>
+        <Box
+          style={{
+            position: "absolute",
+            width: "20px",
+            height: "20px",
+            right: "10px",
+            top: "calc(50% - 20px/2)",
+            fontWeight: "300",
+            fontSize: "20px",
+            lineHeight: "20px",
+            display: "flex",
+            alignItems: "center",
+            textAlign: "right",
+          }}
+        >
+          <SvgIcon component={CrossIcon} />
+        </Box>
       </Box>
-      <Stepper activeStep={activeStep} className={classes.stepper}>
+      <Stepper
+        activeStep={activeStep}
+        style={{
+          boxSizing: "border-box",
+          height: "88px",
+          left: "0px",
+          right: "0px",
+          top: "40px",
+          background: "#F5F8FB",
+          borderBottom: "1px solid #DDE1EB",
+        }}
+      >
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>

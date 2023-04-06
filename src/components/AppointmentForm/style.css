@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap");
 
-body{
-   font-family: 'Poppins';
+body {
+  font-family: "Poppins";
 }
 
 .makeStyles-paper-2 {
-  height: 721px!important;
+  /* height: 721px!important; */
   padding: 0px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
-.Servicetype{
+.Servicetype {
   font-family: "Poppins";
   color: black;
 }
@@ -20,29 +20,23 @@ body{
   background-color: #00bcd4;
 }
 
-
-.backstep{
-  margin-left: 14rem!important;
-  margin-top: 1rem!important;
+.backstep {
+  margin-left: 14rem !important;
+  margin-top: 1rem !important;
 }
- 
 
-.css-1d6wzja-MuiButton-startIcon{
-  color: #007BFF;
+.css-1d6wzja-MuiButton-startIcon {
+  color: #007bff;
 }
-.react-calendar__month-view__days{
-  display: grid!important;
-  grid-template-columns: auto auto auto auto auto auto auto!important;
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: auto auto auto auto auto auto auto !important;
   gap: 8px 35px;
   width: 93%;
   margin: auto;
 }
 
-
-.MuiPaper-root {
-  background-color: #fff !important;
-}
-.MuiStepper-root{
+.MuiStepper-root {
   height: 88px;
 }
 /* .MuiTypography-body1 {
@@ -69,7 +63,7 @@ position: relative;
   gap: 9px;
 }
 .makeStyles-stepper-31 {
-  padding: 24px!important;
+  padding: 24px !important;
   color: black !important;
   background: #f5f8fb !important;
   border-bottom: 1px solid #dde1eb !important;
@@ -149,11 +143,11 @@ position: relative;
   line-height: 28px !important;
   color: #1f2327 !important;
 }
-.react-calendar__month-view__days__day--weekend{
-  color: black!important;
+.react-calendar__month-view__days__day--weekend {
+  color: black !important;
 }
-.react-calendar__month-view__days__day--neighboringMonth{
-  color: #757575!important;
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575 !important;
 }
 
 .cardname {
@@ -175,57 +169,56 @@ position: relative;
   flex: 0 0 13%!important;
   border-radius: 500px;
 } */
-.css-1qs309j-MuiButtonBase-root-MuiPickersDay-root{
-  font-family: 'poppins'!important;
-  font-weight: 600!important;
-  color: #1F2327!important;
+.css-1qs309j-MuiButtonBase-root-MuiPickersDay-root {
+  font-family: "poppins" !important;
+  font-weight: 600 !important;
+  color: #1f2327 !important;
 }
-.css-7oawqu-MuiButtonBase-root-MuiPickersDay-root{
-  font-family: 'poppins'!important;
-  font-weight: 600!important;
-  color: #1F2327!important;
+.css-7oawqu-MuiButtonBase-root-MuiPickersDay-root {
+  font-family: "poppins" !important;
+  font-weight: 600 !important;
+  color: #1f2327 !important;
 }
-.css-1qs309j-MuiButtonBase-root-MuiPickersDay-root.Mui-selected{
-  color: #fff!important;
-  background-color: #007BFF!important;
+.css-1qs309j-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+  color: #fff !important;
+  background-color: #007bff !important;
 }
-.css-7oawqu-MuiButtonBase-root-MuiPickersDay-root.Mui-selected{
-  color: #fff!important;
-  background-color: #007BFF!important;
+.css-7oawqu-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+  color: #fff !important;
+  background-color: #007bff !important;
 }
-.css-1v09r0c-MuiButtonBase-root-MuiPickersDay-root{
-  font-family: 'poppins'!important;
-  font-weight: 400!important;
+.css-1v09r0c-MuiButtonBase-root-MuiPickersDay-root {
+  font-family: "poppins" !important;
+  font-weight: 400 !important;
 }
-.css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel{
-  font-family: 'poppins'!important;
-  font-weight: 500!important;
-  color: #1F2327!important;
+.css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel {
+  font-family: "poppins" !important;
+  font-weight: 500 !important;
+  color: #1f2327 !important;
 }
-.css-nk89i7-MuiPickersCalendarHeader-root{
-  padding-left: 10px!important;
+.css-nk89i7-MuiPickersCalendarHeader-root {
+  padding-left: 10px !important;
 }
-.css-cyfsxc-MuiPickersCalendarHeader-labelContainer{
-  font-family: 'poppins'!important;
-  font-weight: 300!important;
-  font-size: 2rem!important;
+.css-cyfsxc-MuiPickersCalendarHeader-labelContainer {
+  font-family: "poppins" !important;
+  font-weight: 300 !important;
+  font-size: 2rem !important;
 }
-.css-12mkn7b-MuiButtonBase-root-MuiIconButton-root-MuiPickersCalendarHeader-switchViewButton{
-  display: none!important;
+.css-12mkn7b-MuiButtonBase-root-MuiIconButton-root-MuiPickersCalendarHeader-switchViewButton {
+  display: none !important;
 }
-.css-cwhad8-MuiDateCalendar-root{
-  width: 510px!important;
+.css-cwhad8-MuiDateCalendar-root {
+  width: 510px !important;
 }
-.css-9reuh9-MuiPickersArrowSwitcher-root{
-  display: none!important;
+.css-9reuh9-MuiPickersArrowSwitcher-root {
+  display: none !important;
 }
-.css-flbe84-MuiDayCalendar-weekContainer{
+.css-flbe84-MuiDayCalendar-weekContainer {
   gap: 40px;
 }
-.css-i5q14k-MuiDayCalendar-header{
+.css-i5q14k-MuiDayCalendar-header {
   gap: 40px;
 }
-
 
 .MuiButton-root {
   color: black;
@@ -263,8 +256,8 @@ position: relative;
 .MuiSvgIcon-root {
   font-size: 2rem !important;
 }
-.makeStyles-nextButton-160{
-  color: white!important;
+.makeStyles-nextButton-160 {
+  color: white !important;
 }
 .MuiStep-horizontal {
   padding-left: 0px !important;
@@ -355,9 +348,7 @@ position: relative;
   /* borderColor: '#1F2327', */
   /* border-color: #1F2327 !important; */
 }
-.MuiTypography-gutterBottom {
-  margin-bottom: -10px!important;
-}
+
 /*----*/
 
 .css-1ahv6t2-JoyList-root {
@@ -372,12 +363,13 @@ position: relative;
 .css-b5w08v-JoySheet-root {
   border-radius: 18px;
 }
+/*
 .css-1obzj18-JoySheet-root {
   text-align: center;
   box-shadow: none !important;
   padding-top: 75px;
   max-width: 244px !important;
-}
+} */
 
 .css-pfaso8-JoyRadio-label {
   font-size: 15px;
@@ -400,7 +392,7 @@ position: relative;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 10px!important;
+  line-height: 10px !important;
   border-radius: 500px;
 }
 
@@ -419,29 +411,28 @@ abbr[title] {
 }
 
 .makeStyles-nextButton-158 {
-  color: white!important;
+  color: white !important;
 }
- 
 
 .MuiButton-root.Mui-disabled {
-  color: rgba(255, 255, 255, 0.3)!important;
+  color: rgba(255, 255, 255, 0.3) !important;
 }
 .react-calendar__navigation__arrow {
   display: none;
 }
 
-.svg-inline--fa{
-  height: 13px!important;
+.svg-inline--fa {
+  height: 13px !important;
 }
 
 .css-v2ra2r-JoyRadio-action.css-v2ra2r-JoyRadio-action {
-  border-color: 1px solid #007BFF;
-  border: 1px solid #007BFF;
-  background-color: #E2F0FF;
+  border-color: 1px solid #007bff;
+  border: 1px solid #007bff;
+  background-color: #e2f0ff;
   /* color: #007BFF; */
 }
-.css-1uz2tnr-JoyRadio-label{
-  color: #007BFF!important;
+.css-1uz2tnr-JoyRadio-label {
+  color: #007bff !important;
 }
 
 .react-calendar__navigation {
@@ -470,7 +461,7 @@ abbr[title] {
 }
 .react-calendar__tile--active {
   background: #006edc;
-  color: white!important;
+  color: white !important;
 }
 /* .css-dmmspl-MuiFormGroup-root{
     display: flex!important;
@@ -497,7 +488,7 @@ abbr[title] {
   padding: 16px 30px !important;
   background-color: white !important;
   border: none !important;
-  text-transform: capitalize!important;
+  text-transform: capitalize !important;
 }
 
 .Okay {
@@ -522,76 +513,69 @@ abbr[title] {
 }
 
 @media screen and (max-width: 631px) {
-  
   .makeStyles-root-1 {
-    margin-left: auto!important;
+    margin-left: auto !important;
   }
 }
 @media screen and (max-width: 560px) {
-  
   .makeStyles-root-1 {
-    width: auto!important;
+    width: auto !important;
   }
 }
 
 @media screen and (max-width: 540px) {
-
-  #checkoutForm{
+  #checkoutForm {
     height: 672px;
   }
-  .bgcover{
-    height: 672px!important;
+  .bgcover {
+    height: 672px !important;
   }
   .css-k3x4pj {
-    bottom: -95px!important;
-}
-.radio-text{
-  height: 250px!important;
-}
-.checked{
-  flex-direction: column!important;
-  gap: 10px!important;
-}
-  .css-9ou33r-JoyRadioGroup-root{
-    display: flex!important;
-    width: 312px!important;
-    margin: auto!important;
-    gap: 24px!important;
-    height: auto!important;
+    bottom: -95px !important;
   }
+  .radio-text {
+    height: 250px !important;
+  }
+  .checked {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  /* .css-9ou33r-JoyRadioGroup-root {
+    display: flex !important;
+    width: 312px !important;
+    margin: auto !important;
+    gap: 24px !important;
+    height: auto !important;
+  } 
   .css-1obzj18-JoySheet-root {
-    max-width: 312px!important;
-    height: 116px!important;
-}
+    max-width: 312px !important;
+    height: 116px !important;
+  }*/
 
-.heatstep{
-  width: 90%!important;
-  margin: auto auto;
-}
-.css-3hx9vb-JoyRadioGroup-root{
-  grid-template-columns: auto auto;
-}
+  .heatstep {
+    width: 90% !important;
+    margin: auto auto;
+  }
+  .css-3hx9vb-JoyRadioGroup-root {
+    grid-template-columns: auto auto;
+  }
 
-.text-para{
-  width: 90%!important;
-  margin: auto auto!important;
-}
-.text-area{
-  width: 90%!important;
-  margin: auto auto!important;
-}
-.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
-  width: 100%!important;
-  margin: auto auto!important;
-}
-.react-calendar__month-view__days{
-  gap: 8px 30px;
-}
-
+  .text-para {
+    width: 90% !important;
+    margin: auto auto !important;
+  }
+  .text-area {
+    width: 90% !important;
+    margin: auto auto !important;
+  }
+  .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    width: 100% !important;
+    margin: auto auto !important;
+  }
+  .react-calendar__month-view__days {
+    gap: 8px 30px;
+  }
 }
 
 @media screen and (min-width: 505px) {
-
-
-  
 }

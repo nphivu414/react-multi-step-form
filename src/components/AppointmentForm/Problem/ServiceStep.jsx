@@ -1,78 +1,131 @@
-import React from "react";
-import { Typography, Box } from "@material-ui/core";
-import Radio from "@mui/joy/Radio";
-import RadioGroup from "@mui/joy/RadioGroup";
-import Sheet from "@mui/joy/Sheet";
-import { Heating } from "../../Icons";
+import React, { useEffect } from "react";
+import {
+  FormControl,
+  FormControlLabel,
+  Radio,
+  Box,
+  RadioGroup,
+  Typography,
+  makeStyles,
+} from "@material-ui/core";
+import { Heating, Plumbing, Electrical } from "../../Icons";
 import { SvgIcon } from "@mui/material";
 
+const useStyles = makeStyles((theme) => ({
+  myFormControlLabelRoot: {
+    marginLeft: "0px",
+    marginRight: "0px",
+  },
+}));
+
 const ServiceStep = (props) => {
-  const services = ["Plumbing", "Heating & Air", "Electrical"];
-  const { _setProblemFormData, _handleNextStep } = props;
+  const classes = useStyles(); // Apply the custom styles
+  const services = [
+    { id: "Plumbing", label: "Plumbing", icon: Plumbing },
+    { id: "Heating", label: "Heating & Air", icon: Heating },
+    { id: "Electrical", label: "Electrical", icon: Electrical },
+  ];
+  const { _setProblemFormData, _handleNextStep, setActiveStepColor } = props;
+  const [selectedOption, setSelectedOption] = React.useState({});
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+    _setProblemFormData(event.target.name, event.target.value);
+    _handleNextStep();
+  };
+
+  useEffect(() => {
+    setActiveStepColor("#FFFFFF");
+  }, []);
 
   return (
-    <React.Fragment>
-      <Typography variant="h6" gutterBottom>
+    <>
+      <Typography
+        style={{
+          padding: "24px",
+          paddingBottom: "16px",
+        }}
+        variant="h6"
+      >
         What do you need help with?
-        <hr style={{width: '29px',
-    padding: '1px',
-    border: 'none',
-    background: '#007BFF',
-    borderColor: '#1F2327',
-    marginLeft: '0px'}}></hr>
+        <hr
+          style={{
+            width: "29px",
+            padding: "1px",
+            border: "none",
+            background: "#007BFF",
+            borderColor: "#1F2327",
+            marginLeft: "0px",
+          }}
+        ></hr>
       </Typography>
-      
 
-      <RadioGroup
-        aria-label="Your plan"
-        name="people"
-        defaultValue="none"
+      <FormControl
         style={{
           display: "grid",
-          gridTemplateColumns: "auto auto",
-          gap: "15px",
-          width: "95%",
-          marginLeft: "auto",
-          height: "244px",
         }}
+        component="fieldset"
       >
-        {services.map((value) => (
-          <Box>
-            <Box position="absolute">
-              <SvgIcon component={Heating} />
-            </Box>
-            <Sheet
-              key={value}
-              sx={{ boxShadow: "sm", bgcolor: "background.body" }}
-            >
-              <Radio
-                overlay
-                disableIcon
-                name="service"
-                value={value}
-                label={value}
-                onClick={(event) => {
-                  _setProblemFormData(event.target.name, event.target.value);
-                  _handleNextStep();
-                }}
-                sx={{ flexGrow: 1, flexDirection: "row-reverse" }}
-                slotProps={{
-                  action: ({ checked }) => ({
-                    sx: (theme) => ({
-                      ...(checked && {
-                        inset: -1,
-                        border: "2px solid",
-                        borderColor: theme.vars.palette.primary[500],
-                      }),
-                    }),
-                  }),
-                }}
-              />
-            </Sheet>
-          </Box>
-        ))}
-      </RadioGroup>
-    </React.Fragment>
+        <RadioGroup
+          style={{
+            position: "relative",
+            display: "grid",
+            gridTemplateColumns: "auto auto",
+            gap: "24px",
+            padding: "24px",
+            paddingTop: "16px",
+          }}
+          value={selectedOption?.label}
+          onChange={handleOptionChange}
+        >
+          {services.map((service) => (
+            <FormControlLabel
+              key={service?.id}
+              value={service?.label}
+              control={<Radio style={{ display: "none" }} />}
+              style={{
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                padding: "16px",
+                gap: "16px",
+                width: "235px",
+                height: "116px",
+                left: 0,
+                right: 0,
+                background: "#FFFFFF",
+                borderRadius: "16px",
+                cursor: "pointer",
+                border: "1px solid #D3D7E1",
+              }}
+              label={
+                <Box>
+                  <Box
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    <SvgIcon component={service?.icon} />
+                  </Box>
+                  <Typography
+                    style={{
+                      color: "#1F2327",
+                      textAlign: "center",
+                      lineHeight: "20px",
+                    }}
+                  >
+                    {service?.label}
+                  </Typography>
+                </Box>
+              }
+              classes={{ root: classes.myFormControlLabelRoot }}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+    </>
   );
 };
+
 export default ServiceStep;
