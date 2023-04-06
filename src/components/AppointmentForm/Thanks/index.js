@@ -27,6 +27,7 @@ function Thanks() {
             display: "flex",
             backgroundColor: "#F2F0FA",
             justifyContent: "center",
+            padding: '25px'
           }}
         >
           <Button variant="outlined" startIcon={<ThumbUpIcon />}>
