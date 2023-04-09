@@ -4,54 +4,64 @@ import { Button } from "@material-ui/core";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
-
+import appointmentFormStyle from "../../styles";
 const ExistingCustomerAddress = () => {
+  const classes = appointmentFormStyle();
   return (
-    <div style={{height: '528px'}}>
-      <Typography variant="h6" gutterBottom>
+    <div className={classes.formDivWithHeight}>
+      <Typography variant="h6" className={classes.formTitleTypoGraphy}>
         Address where our team is needed
-        <hr style={{width: '29px',
-    padding: '1px',
-    border: 'none',
-    background: '#007BFF',
-    marginLeft: '0px'}}></hr>
+        <hr className={classes.formTitleHr}></hr>
       </Typography>
-
-      <RadioGroup
+      <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          paddingLeft: "17px",
+          gap: "16px",
         }}
-        name="use-radio-group"
-        defaultValue="first"
+        className={classes.formTitleDiv}
       >
-        <FormControlLabel
-          value="first"
-          label="XXXX Monterey Blvd. "
-          control={<Radio />}
-        />
-        <FormControlLabel
-          value="second"
-          label="XXXX Harry Byrd Hwy."
-          control={<Radio />}
-        />
-      </RadioGroup>
-
-      <Button style={{border: '1px solid #007BFF',
-    color: '#007BFF',
-    background: '#E2F0FF',
-    borderRadius: '500px',
-    padding: '6px 12px',
-    marginLeft: '30px',
-    marginTop: '10px'}}>
-      <span style={{fontStyle: 'normal',
-      fontSeight: '600',
-      fontSize: '12px',
-      letterSpacing: '0.1em'
-    }}>ADD NEW ADDRESS</span></Button>
-
-
+        <RadioGroup
+          style={{
+            gap: "16px",
+          }}
+          name="use-radio-group"
+          defaultValue="first"
+        >
+          <FormControlLabel
+            className={classes.formAddressRadio}
+            value="first"
+            label="XXXX Monterey Blvd. "
+            control={<Radio />}
+          />
+          <FormControlLabel
+            className={classes.formAddressRadio}
+            value="second"
+            label="XXXX Harry Byrd Hwy."
+            control={<Radio />}
+          />
+        </RadioGroup>
+        <Button
+          style={{
+            border: "1px solid #007BFF",
+            color: "#007BFF",
+            background: "#E2F0FF",
+            borderRadius: "500px",
+            padding: "6px 12px",
+            height: "28px",
+            width: "fit-content",
+          }}
+        >
+          <span
+            style={{
+              fontStyle: "normal",
+              fontSeight: "600",
+              fontSize: "12px",
+              letterSpacing: "0.1em",
+            }}
+          >
+            ADD NEW ADDRESS
+          </span>
+        </Button>
+      </div>
     </div>
   );
 };

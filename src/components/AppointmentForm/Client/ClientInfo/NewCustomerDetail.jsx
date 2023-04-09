@@ -2,83 +2,65 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import appointmentFormStyle from "../../styles";
+
+import { EmailIcon, ProfileIcon, PhoneIcon } from "../../../Icons";
+import { SvgIcon } from "@mui/material";
 
 const NewCustomerDetail = (props) => {
+  const classes = appointmentFormStyle();
   const { _setClientFormData, setIsNextdisabled } = props;
 
   useEffect(() => {
     setIsNextdisabled(false);
   }, []);
   return (
-    <div style={{height: '528px'}}>
-      <Typography variant="h6" gutterBottom>
+    <div className={classes.formDivWithHeight}>
+      <Typography className={classes.formTitleTypoGraphy} variant="h6">
         New customer
-        <hr style={{width: '29px',
-    padding: '1px',
-    border: 'none',
-    background: '#007BFF',
-    marginLeft: '0px'}}></hr>
+        <hr className={classes.formTitleHr}></hr>
       </Typography>
-
-      <div className="text-area"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "30px",
-          width: "512px",
-          margin: "auto",
-        }}
-      >
-        <Typography
-          style={{
-            fontFamily: "Poppins",
-            fontStyle: "normal",
-            fontWeight: "400",
-            fontSize: "16px",
-            lineHeight: "32px",
-            color: "#4D4F59",
-          }}
-          variant="Body"
-          gutterBottom
-        >
-          Please enter your account phone number
+      <div className={classes.formTitleDiv}>
+        <Typography className={classes.formInstructionTypo} variant="Body">
+          Please enter your details below
         </Typography>
 
         <TextField
-          id="input-with-icon-textfield"
+          variant="outlined"
+          id="name"
           label="First name and last name"
           placeholder="First name and last name"
+          className={classes.textFieldDiv}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <PersonOutlineOutlinedIcon />
+                <SvgIcon component={ProfileIcon} />
               </InputAdornment>
             ),
           }}
         />
         <TextField
-          id="input-with-icon-textfield"
+          id="phoneNumber"
           label="Phone number"
           placeholder="Phone number"
+          className={classes.textFieldDiv}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <LocalPhoneOutlinedIcon />
+                <SvgIcon component={PhoneIcon} />
               </InputAdornment>
             ),
           }}
         />
         <TextField
-          id="input-with-icon-textfield"
+          id="emailAddress"
           label="Email address"
           placeholder="Email address"
+          className={classes.textFieldDiv}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <EmailOutlinedIcon />
+                <SvgIcon component={EmailIcon} />
               </InputAdornment>
             ),
           }}

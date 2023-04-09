@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typography } from "@material-ui/core";
 import Button from "@mui/material/Button";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-function Thanks() {
+import appointmentFormStyle from "../styles";
+function Thanks(props) {
+  const { setActiveStepColor } = props;
+  const classes = appointmentFormStyle();
+  useEffect(() => {
+    setActiveStepColor("#F2F0FA");
+  }, []);
   return (
     <React.Fragment>
-      <div style={{ backgroundColor: "#F2F0FA", height: "593px" }}>
+      <div
+        className={
+          classes.formDivWithHeight
+        } /*</React.Fragment>style={{ backgroundColor: "#F2F0FA", height: "593px" }}*/
+      >
         <Typography
           variant="h4"
           sx={{
@@ -14,12 +24,15 @@ function Thanks() {
           gutterBottom
         >
           Thank you, appointment created
-          <hr style={{width: '29px',
-    padding: '1px',
-    border: 'none',
-    background: '#007BFF',
-    marginLeft: '16rem'
-    }}></hr>
+          <hr
+            style={{
+              width: "29px",
+              padding: "1px",
+              border: "none",
+              background: "#007BFF",
+              marginLeft: "16rem",
+            }}
+          ></hr>
         </Typography>
 
         <div
@@ -27,7 +40,7 @@ function Thanks() {
             display: "flex",
             backgroundColor: "#F2F0FA",
             justifyContent: "center",
-            padding: '25px'
+            padding: "25px",
           }}
         >
           <Button variant="outlined" startIcon={<ThumbUpIcon />}>

@@ -129,8 +129,7 @@ position: relative;
 } */
 
 #checkoutForm {
-  height: 593px;
-  background: white;
+  /* height: 593px; */
   color: black;
   position: relative;
 }
@@ -253,9 +252,6 @@ position: relative;
   margin-top: -23px !important;
 }
 
-.MuiSvgIcon-root {
-  font-size: 2rem !important;
-}
 .makeStyles-nextButton-160 {
   color: white !important;
 }
@@ -342,11 +338,6 @@ position: relative;
   font-weight: 400 !important;
   font-size: 16px !important;
   color: #1f2327 !important;
-}
-
-.css-1wzowpn-JoyRadio-action {
-  /* borderColor: '#1F2327', */
-  /* border-color: #1F2327 !important; */
 }
 
 /*----*/
@@ -483,12 +474,20 @@ abbr[title] {
 }
 
 .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.09);
-  border-radius: 500px !important;
-  padding: 16px 30px !important;
-  background-color: white !important;
   border: none !important;
   text-transform: capitalize !important;
+  display: flex;
+  flex-direction: row !important;
+  align-items: center !important;
+  padding: 16px 24px !important;
+  gap: 8px !important;
+  height: 56px !important;
+  background: #ffffff !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.09);
+  border-radius: 500px !important;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 }
 
 .Okay {

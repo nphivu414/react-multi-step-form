@@ -44,7 +44,7 @@ export default function AppointmentForm(props) {
   );
   const [clientFormField, setClientFormField] = useState(clientIntialValues);
   // set default step for each
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(2);
   const [problemActiveStep, setProblemActiveStep] = useState(0);
   const [descriptionActiveStep, setDescriptionActiveStep] = useState(0);
   const [clientActiveStep, setClientActiveStep] = useState(0);
@@ -177,7 +177,7 @@ export default function AppointmentForm(props) {
       case 4:
         return <Confirm />;
       default:
-        return <Thanks />;
+        return <Thanks setActiveStepColor={setActiveStepColor} />;
     }
   }
 

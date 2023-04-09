@@ -64,21 +64,21 @@ export default function Problem(props) {
   return (
     <React.Fragment>
       {_renderStepContent(problemActiveStep)}
-      <div>
-        {problemActiveStep !== 0 && (
-          <>
-            {problemActiveStep === 1 ? (
+
+      {problemActiveStep !== 0 && (
+        <>
+          {problemActiveStep === 1 ? (
+            <div style={{ textAlign: "center" }}>
+              {" "}
               <Button
                 startIcon={<FontAwesomeIcon icon={faArrowLeftLong} />}
                 style={{
+                  padding: "8px 12px",
+                  height: "32px",
                   borderRadius: "500px",
-                  border: " 1px solid #007BFF",
-                  top: "24rem",
-                  position: "absolute",
+                  border: "1px solid #007BFF",
                   color: "#007BFF",
-                  padding: "2px 16px",
                   backgroundColor: "#E2F0FF",
-                  left: "14rem",
                 }}
                 variant="contained"
                 color="primary"
@@ -94,41 +94,51 @@ export default function Problem(props) {
                   Back
                 </span>
               </Button>
-            ) : (
-              <div
-                style={{ position: "relative", bottom: "38px", width: "100%" }}
+            </div>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "8px",
+                position: "fixed",
+                height: "48px",
+                bottom: 0,
+                width: "100%",
+                background: "#F2F5FB",
+              }}
+            >
+              <Button
+                startIcon={<FontAwesomeIcon icon={faArrowLeftLong} />}
+                style={{
+                  borderRadius: "500px",
+                  padding: "2px 16px",
+                  // position: "absolute",
+                  background: "#FFFFFF",
+                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.09)",
+                  backgroundColor: "#fff",
+                  left: "1rem",
+                }}
+                variant="contained"
+                color="primary"
+                onClick={_handleBack}
               >
-                <Button
-                  startIcon={<FontAwesomeIcon icon={faArrowLeftLong} />}
+                <span
                   style={{
-                    borderRadius: "500px",
-                    padding: "2px 16px",
-                    position: "absolute",
-
-                    background: "#FFFFFF",
-                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.09)",
-                    backgroundColor: "#fff",
-                    left: "1rem",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    padding: "4px 2px",
                   }}
-                  variant="contained"
-                  color="primary"
-                  onClick={_handleBack}
                 >
-                  <span
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      padding: "4px 2px",
-                    }}
-                  >
-                    Back
-                  </span>
-                </Button>
-              </div>
-            )}
-          </>
-        )}
-      </div>
+                  Back
+                </span>
+              </Button>
+            </div>
+          )}
+        </>
+      )}
     </React.Fragment>
   );
 }

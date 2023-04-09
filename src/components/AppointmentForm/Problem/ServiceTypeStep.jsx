@@ -4,8 +4,9 @@ import Button from "@mui/material/Button";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import EventIcon from "@mui/icons-material/Event";
 import RepeatIcon from "@mui/icons-material/Repeat";
-
+import appointmentFormStyle from "../styles";
 const ServiceTypeStep = (props) => {
+  const classes = appointmentFormStyle();
   const { _setProblemFormData, _handleNextStep, setActiveStepColor } = props;
 
   const serviceTypeList = [
@@ -45,8 +46,8 @@ const ServiceTypeStep = (props) => {
   return (
     // <div style={{ backgroundColor: "#F2F0FA" }}>
     <div
-      className="bgcover"
-      style={{ height: "593px", backgroundColor: "#F2F0FA" }}
+      className={classes.formDiv}
+      //  style={{ paddingBottom: "24px", backgroundColor: "#F2F0FA" }}
     >
       <Typography variant="h6" gutterBottom style={{ textAlign: "center" }}>
         What type of service do you need?
@@ -65,7 +66,7 @@ const ServiceTypeStep = (props) => {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "22px",
+          gap: "24px",
           justifyContent: "center",
         }}
       >

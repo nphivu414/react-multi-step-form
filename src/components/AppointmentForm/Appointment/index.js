@@ -6,18 +6,20 @@ import "react-calendar/dist/Calendar.css";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-
+import appointmentFormStyle from "../styles";
 function Appointment() {
+  const classes = appointmentFormStyle();
   const [value, onChange] = useState(new Date());
 
   return (
-    <div style={{height: '528px'}}>
+    <div className={classes.formDivWithHeight}>
       {/* <Calendar/> */}
       <Calendar onChange={onChange} value={value} />
-      <div className="radio-text"
+      <div
+        className="radio-text"
         style={{
           background: "#F2F0FA",
-          height: '215px'
+          height: "215px",
         }}
       >
         <RadioGroup

@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
-import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import { PhoneIcon } from "../../../Icons";
+import { SvgIcon } from "@mui/material";
+import appointmentFormStyle from "../../styles";
 
 const ExistingCustomerDetail = (props) => {
+  const classes = appointmentFormStyle();
   const { _setClientFormData, setIsNextdisabled } = props;
   const [accountPhoneNumber, setAccountPhoneNumber] = useState("");
 
@@ -17,37 +20,14 @@ const ExistingCustomerDetail = (props) => {
   }, [accountPhoneNumber]);
 
   return (
-    <div  style={{height: '528px'}} >
-      <Typography variant="h6" gutterBottom>
+    <div className={classes.formDivWithHeight}>
+      <Typography variant="h6" className={classes.formTitleTypoGraphy}>
         Existing customer
-        <hr style={{width: '29px',
-    padding: '1px',
-    border: 'none',
-    background: '#007BFF',
-    marginLeft: '0px'}}></hr>
+        <hr className={classes.formTitleHr}></hr>
       </Typography>
 
-      <div className="text-area"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "30px",
-          width: "512px",
-          margin: "auto",
-        }}
-      >
-        <Typography
-          style={{
-            fontFamily: "Poppins",
-            fontStyle: "normal",
-            fontWeight: "400",
-            fontSize: "16px",
-            lineHeight: "32px",
-            color: "#4D4F59",
-          }}
-          variant="Body"
-          gutterBottom
-        >
+      <div className={classes.formTitleDiv}>
+        <Typography className={classes.formInstructionTypo} variant="Body">
           Please enter your account phone number
         </Typography>
 
@@ -60,10 +40,11 @@ const ExistingCustomerDetail = (props) => {
             setAccountPhoneNumber(event.target.value);
             _setClientFormData(event.target.name, event.target.value);
           }}
+          className={classes.textFieldDiv}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <LocalPhoneOutlinedIcon />
+                <SvgIcon component={PhoneIcon} />
               </InputAdornment>
             ),
           }}

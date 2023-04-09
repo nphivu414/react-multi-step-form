@@ -6,54 +6,35 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
+import appointmentFormStyle from "../../styles";
 
 const NewCustomerAddress = () => {
+  const classes = appointmentFormStyle();
   const [state, setState] = React.useState("");
 
   const handleChange = (event) => {
     setState(event.target.value);
   };
   return (
-    <div style={{height: '528px'}}>
-      <Typography variant="h6" gutterBottom>
+    <div className={classes.formDivWithHeight}>
+      <Typography variant="h6" className={classes.formTitleTypoGraphy}>
         Address where our team is needed
-        <hr style={{width: '29px',
-    padding: '1px',
-    border: 'none',
-    background: '#007BFF',
-    marginLeft: '0px'}}></hr>
+        <hr className={classes.formTitleHr}></hr>
       </Typography>
 
-      <div className="text-area"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "30px",
-          width: "512px",
-          margin: "auto",
-        }}
-      >
-        <Typography
-          style={{
-            fontFamily: "Poppins",
-            fontStyle: "normal",
-            fontWeight: "400",
-            fontSize: "16px",
-            lineHeight: "32px",
-            color: "#4D4F59",
-          }}
-          variant="Body"
-          gutterBottom
-        >
+      <div className={classes.formTitleDiv}>
+        <Typography className={classes.formInstructionTypo} variant="Body">
           Please enter your details below
         </Typography>
 
         <TextField
+          className={classes.textFieldDiv}
           id="outlined-basic"
           label="Street Address"
           variant="outlined"
         />
         <TextField
+          className={classes.textFieldDiv}
           id="outlined-basic"
           label="Apartment / Unit"
           variant="outlined"
@@ -72,10 +53,12 @@ const NewCustomerAddress = () => {
             id="outlined-basic"
             label="City"
             variant="outlined"
+            className={classes.textFieldDiv}
           />
           <FormControl style={{ width: "155px" }}>
             <InputLabel id="demo-simple-select-label">state</InputLabel>
             <Select
+              className={classes.textFieldDiv}
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={state}
@@ -141,7 +124,8 @@ const NewCustomerAddress = () => {
           </FormControl>
         </div>
 
-        <div className="checked"
+        <div
+          className="checked"
           style={{
             display: "flex",
             flexDirection: "row",
@@ -149,6 +133,7 @@ const NewCustomerAddress = () => {
           }}
         >
           <TextField
+            className={classes.textFieldDiv}
             style={{ width: "155px" }}
             id="outlined-basic"
             label="Zip Code"

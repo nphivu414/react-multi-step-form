@@ -8,9 +8,6 @@ import {
   faCheck,
   faArrowRightLong,
 } from "@fortawesome/free-solid-svg-icons";
-// import EastIcon from '@mui/icons-material/East';
-// import WestIcon from '@mui/icons-material/West';
-// import CheckIcon from '@mui/icons-material/Check';
 
 const useStyles = makeStyles((theme) => ({
   backButton: {
@@ -22,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
   },
   nextButton: {
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    "& .MuiButton-root.Mui-disabled": {
-      backgroundColor: theme.palette.primary.dark,
-      color: theme.palette.primary.contrastText,
+    color: "#fff !Important",
+    "&.MuiButton-root.Mui-disabled": {
+      opacity: "0.4 !Important",
+      color: "#fff !Important",
     },
     "&:hover": {
       backgroundColor: theme.palette.primary.dark,
@@ -48,7 +45,6 @@ export default function ButtonAppBar(props) {
       component="footer"
       sx={{
         position: "relative",
-        bottom: -17,
         width: "100%",
       }}
     >
@@ -83,9 +79,15 @@ export default function ButtonAppBar(props) {
         {!nextHide ? (
           <Button
             style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              padding: "8px 12px",
+              gap: "4px",
+              height: "32px",
+              background: "#007BFF",
               borderRadius: "500px",
               backgroundColor: "#007BFF",
-              padding: "2px 12px",
             }}
             startIcon={
               isLastStep ? (

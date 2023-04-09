@@ -4,9 +4,11 @@ import Button from "@mui/material/Button";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Heating } from "../../Icons";
 import { SvgIcon } from "@mui/material";
+import appointmentFormStyle from "../styles";
 
 const IssuesStep = (props) => {
   const { _setProblemFormData, _handleNext, setActiveStepColor } = props;
+  const classes = appointmentFormStyle();
 
   useEffect(() => {
     setActiveStepColor("#FFFFFF");
@@ -44,7 +46,7 @@ const IssuesStep = (props) => {
   ];
 
   return (
-    <div style={{ height: "593px" }}>
+    <div className={classes.formDiv}>
       <Typography
         variant="p"
         style={{

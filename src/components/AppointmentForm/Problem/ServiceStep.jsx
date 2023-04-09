@@ -10,16 +10,11 @@ import {
 } from "@material-ui/core";
 import { Heating, Plumbing, Electrical } from "../../Icons";
 import { SvgIcon } from "@mui/material";
-
-const useStyles = makeStyles((theme) => ({
-  myFormControlLabelRoot: {
-    marginLeft: "0px",
-    marginRight: "0px",
-  },
-}));
+import appointmentFormStyle from "../styles";
 
 const ServiceStep = (props) => {
-  const classes = useStyles(); // Apply the custom styles
+  // const classes = useStyles(); // Apply the custom styles
+  const classes = appointmentFormStyle();
   const services = [
     { id: "Plumbing", label: "Plumbing", icon: Plumbing },
     { id: "Heating", label: "Heating & Air", icon: Heating },
@@ -41,10 +36,11 @@ const ServiceStep = (props) => {
   return (
     <>
       <Typography
-        style={{
+        /* style={{
           padding: "24px",
           paddingBottom: "16px",
-        }}
+        }} */
+        className={classes.formDiv}
         variant="h6"
       >
         What do you need help with?
@@ -110,7 +106,6 @@ const ServiceStep = (props) => {
                   </Box>
                   <Typography
                     style={{
-                      color: "#1F2327",
                       textAlign: "center",
                       lineHeight: "20px",
                     }}
