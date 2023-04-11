@@ -19,6 +19,7 @@ import Client from "./Client";
 import Appointment from "./Appointment";
 import Confirm from "./Confirm";
 import Thanks from "./Thanks";
+import CookiesPopup from "./CookiesPopup";
 //import validationSchema from "./FormModel/validationSchema";
 import AppointmentFormModel from "./FormModel/appointmentFormModel";
 import formInitialValues from "./FormModel/formInitialValues";
@@ -50,6 +51,7 @@ export default function AppointmentForm(props) {
   const [clientActiveStep, setClientActiveStep] = useState(0);
   //const currentValidationSchema = validationSchema[activeStep];
   // check last step of each child
+  const [isShowCookies, setIsShowCookies] = React.useState(true);
   const isLastStep = activeStep === steps.length - 1;
   const isProblemLastStep = problemActiveStep === problemSteps.length - 1;
   const isDescriptionLastStep =
@@ -205,7 +207,7 @@ export default function AppointmentForm(props) {
 
   return (
     // <React.Fragment>
-    <Box component="div" className={classes.boxWrapper}>  
+    <Box component="div" className={classes.boxWrapper}>
       <Box
         style={{
           display: "flex",
@@ -269,13 +271,26 @@ export default function AppointmentForm(props) {
         ))}
       </Stepper>
       <Box className={classes.h100}>
+        {isShowCookies && (
+          <CookiesPopup
+            setIsShowCookies={setIsShowCookies}
+            isShowCookies={isShowCookies}
+          />
+        )}
         <Formik
           initialValues={formInitialValues}
           //validationSchema={currentValidationSchema}
           onSubmit={_handleSubmit}
         >
           {({ isSubmitting }) => (
-            <Form id={formId} className={problemActiveStep===1? classes.boxWrapper:'justifyBetween '+ classes.boxWrapper}>
+            <Form
+              id={formId}
+              className={
+                problemActiveStep === 1
+                  ? classes.boxWrapper
+                  : "justifyBetween " + classes.boxWrapper
+              }
+            >
               {_renderStepContent(activeStep)}
               {activeStep !== 0 && activeStep !== steps.length && (
                 <ButtonAppBar
