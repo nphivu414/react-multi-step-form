@@ -118,7 +118,7 @@ export default function ButtonAppBar(props) {
           ""
         )}
 
-        {isSubmitting && <CircularProgress style={{position: 'absolute',bottom: '300px',left: '200px',zIndex: '1'}} size={100} />}
+        {isSubmitting && <CircularProgress style={{position: 'absolute',bottom: '300px',left: '200px',zIndex: '1',color: '#007bff'}} size={100} />}
       </Box>
     </Box>
   );
