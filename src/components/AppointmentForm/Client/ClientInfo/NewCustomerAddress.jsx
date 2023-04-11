@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
@@ -8,11 +8,15 @@ import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import AutocompleteWithSearchIcon from "../../../FormFields/AutocompleteWithSearchIcon";
 import appointmentFormStyle from "../../styles";
+import ErrorDetail from "./ErrorDetail";
+import { useState } from "react";
 
 const NewCustomerAddress = () => {
   const classes = appointmentFormStyle();
   const [state, setState] = React.useState("");
-  
+
+  const [showResults, setShowResults] = useState(false);
+  const onClick = () => setShowResults(true);
   const handleChange = (event) => {
     setState(event.target.value);
   };
@@ -155,19 +159,19 @@ const NewCustomerAddress = () => {
           />
 
           <div style={{ width: "333px" }}>
-            <Checkbox 
+            <Checkbox
               classes={{
                 root: classes.checkField,
-                checked: classes.checked
-              }} 
+                checked: classes.checked,
+              }}
             />
-              <span
+            <span
               style={{
                 fontFamily: "Poppins",
                 fontStyle: "normal",
                 fontWeight: "400",
                 fontSize: "16px",
-                lineHeight: "32px",
+                lineHeight: "47px",
                 color: "#1F2327",
               }}
             >
@@ -175,6 +179,16 @@ const NewCustomerAddress = () => {
               I own this residence
             </span>
           </div>
+        </div>
+
+        <div>
+          <Button
+            style={{ color: "black", border: "1px solid black", width: "20px" }}
+            onClick={onClick}
+          >
+            popup
+          </Button>
+          {showResults ? <ErrorDetail /> : null}
         </div>
       </div>
     </div>

@@ -40,7 +40,7 @@ function Thanks(props) {
             display: "flex",
             backgroundColor: "#F2F0FA",
             justifyContent: "center",
-            padding: "25px",
+            padding: "15px",
           }}
         >
           <Button variant="outlined" startIcon={<ThumbUpIcon />}>

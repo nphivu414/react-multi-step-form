@@ -2,9 +2,10 @@ import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import TodayIcon from "@mui/icons-material/Today";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-// import PlaceIcon from "@mui/icons-material/Place";
-import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+//import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+//import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import { PhoneIcons, Location } from "../../Icons";
+import { SvgIcon } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import appointmentFormStyle from "../styles";
 export default function Confirm() {
@@ -12,19 +13,24 @@ export default function Confirm() {
   return (
     <React.Fragment>
       <div className={classes.formDivWithHeight}>
-        <Typography variant="h6" gutterBottom>
-          Please review and confirm appointment
-          <hr
-            style={{
-              width: "29px",
-              padding: "1px",
-              border: "none",
-              background: "#007BFF",
-              marginLeft: "0px",
-            }}
-          ></hr>
-        </Typography>
-
+        <div>
+          <Typography
+            style={{ padding: "24px 15px 10px 25px" }}
+            variant="h6"
+            gutterBottom
+          >
+            Please review and confirm appointment
+            <hr
+              style={{
+                width: "29px",
+                padding: "1px",
+                border: "none",
+                background: "#007BFF",
+                marginLeft: "0px",
+              }}
+            ></hr>
+          </Typography>
+        </div>
         <Grid
           style={{
             display: "flex",
@@ -63,6 +69,7 @@ export default function Confirm() {
               }}
             >
               <AccessTimeIcon style={{ color: "#007BFF" }} />
+
               <span>11:30 AM - 2:30 PM EST</span>
             </div>
           </Grid>
@@ -71,12 +78,13 @@ export default function Confirm() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "auto auto",
-                paddingLeft: "25px",
+                paddingLeft: "30px",
                 gap: "10px",
               }}
             >
-              <LocationOnOutlinedIcon style={{ color: "#007BFF" ,marginTop:'8px' }} />
-              <span>
+              {/* <LocationOnOutlinedIcon style={{ color: "#007BFF" }} /> */}
+              <SvgIcon component={Location} />
+              <span style={{ marginTop: "-6px" }}>
                 March 30, 202365 Westington St. Suit 5C, Brooklyn, New York, NY
                 11249
               </span>
@@ -89,10 +97,11 @@ export default function Confirm() {
                 alignItems: "center",
                 flexWrap: "wrap",
                 gap: "14px",
-                paddingLeft: "25px",
+                paddingLeft: "30px",
               }}
             >
-              <LocalPhoneOutlinedIcon style={{ color: "#007BFF" }} />
+              {/* <LocalPhoneOutlinedIcon  style={{ color: "#007BFF" }}  /> */}
+              <SvgIcon component={PhoneIcons} />
               <span>492-990-2789</span>
             </div>
           </Grid>
@@ -120,7 +129,7 @@ export default function Confirm() {
           variant="p"
           style={{
             paddingLeft: "34px",
-            paddingTop: "50px",
+            paddingTop: "4px",
             width: "97%",
             display: "flex",
             fontFamily: "Poppins",

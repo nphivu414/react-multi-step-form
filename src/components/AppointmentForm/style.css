@@ -19,6 +19,9 @@ body {
   color: rgba(0, 0, 0, 0.5);
   background-color: #00bcd4;
 }
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+  padding: 12px 14px!important;
+}
 
 .backstep {
   margin-left: 14rem !important;

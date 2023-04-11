@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { Typography } from "@material-ui/core";
 import Button from "@mui/material/Button";
 import ConstructionIcon from "@mui/icons-material/Construction";
-import EventIcon from "@mui/icons-material/Event";
-import RepeatIcon from "@mui/icons-material/Repeat";
+//import EventIcon from "@mui/icons-material/Event";
+import { RepeatIcon,EventIcon } from "../../Icons";
+import { SvgIcon } from "@mui/material";
 import appointmentFormStyle from "../styles";
 const ServiceTypeStep = (props) => {
   const classes = appointmentFormStyle();
@@ -26,7 +27,7 @@ const ServiceTypeStep = (props) => {
           New equipment estimate
         </span>
       ),
-      icon: <RepeatIcon />,
+      icon:  <SvgIcon   component={RepeatIcon} />,
     },
     {
       id: 3,
@@ -35,7 +36,7 @@ const ServiceTypeStep = (props) => {
           Preventive maintenance
         </span>
       ),
-      icon: <EventIcon />,
+      icon: <SvgIcon   component={EventIcon} />,
     },
   ];
 

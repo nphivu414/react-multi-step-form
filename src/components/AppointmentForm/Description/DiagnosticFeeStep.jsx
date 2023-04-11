@@ -65,13 +65,19 @@ const DiagnosticFeeStep = (props) => {
           fermentum sed eu erat.
         </Typography>
       </div>
-      <div style={{ padding: "10px 0px 0px 11px" }}>
+      <div
+        style={{
+          padding: "10px 0px 0px 11px",
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
         <Checkbox
           name="DiagnosticFee"
           classes={{
             root: classes.checkField,
-            checked: classes.checked
-          }}          
+            checked: classes.checked,
+          }}
           onChange={() => setIschecked(!isChecked)}
         />
         <span
@@ -80,7 +86,7 @@ const DiagnosticFeeStep = (props) => {
             fontStyle: "normal",
             fontWeight: "400",
             fontSize: "16px",
-            lineHeight: "32px",
+            lineHeight: "40px",
             color: "#1F2327",
           }}
         >
