@@ -1,14 +1,13 @@
-import React from 'react';
-import MaterialLayout from './components/Layout/MaterialLayout';
-import CheckoutPage from './components/CheckoutPage';
+import React, { useState } from "react";
+import MaterialLayout from "./components/Layout/MaterialLayout";
+import AppointmentForm from "./components/AppointmentForm";
 
 function App() {
+  const [activeStepColor, setActiveStepColor] = useState("#FFFFFF");
   return (
-    <div>
-      <MaterialLayout>
-        <CheckoutPage />
-      </MaterialLayout>
-    </div>
+    <MaterialLayout activeStepColor={activeStepColor}>
+      <AppointmentForm setActiveStepColor={setActiveStepColor} />
+    </MaterialLayout>
   );
 }
 
