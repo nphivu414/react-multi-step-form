@@ -2,7 +2,8 @@ import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import TodayIcon from "@mui/icons-material/Today";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import PlaceIcon from "@mui/icons-material/Place";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+// import PlaceIcon from "@mui/icons-material/Place";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import appointmentFormStyle from "../styles";
@@ -28,7 +29,7 @@ export default function Confirm() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "17px",
+            gap: "8px",
             fontFamily: "Poppins",
             fontStyle: "normal",
             fontWeight: "400",
@@ -74,7 +75,7 @@ export default function Confirm() {
                 gap: "10px",
               }}
             >
-              <PlaceIcon style={{ color: "#007BFF" }} />
+              <LocationOnOutlinedIcon style={{ color: "#007BFF" ,marginTop:'8px' }} />
               <span>
                 March 30, 202365 Westington St. Suit 5C, Brooklyn, New York, NY
                 11249

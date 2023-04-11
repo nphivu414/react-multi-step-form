@@ -523,9 +523,9 @@ abbr[title] {
 }
 
 @media screen and (max-width: 540px) {
-  #checkoutForm {
+  /* #checkoutForm {
     height: 672px;
-  }
+  } */
   .bgcover {
     height: 672px !important;
   }

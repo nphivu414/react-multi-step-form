@@ -12,14 +12,14 @@ function Appointment() {
   const [value, onChange] = useState(new Date());
 
   return (
-    <div className={classes.formDivWithHeight}>
-      {/* <Calendar/> */}
-      <Calendar onChange={onChange} value={value} />
+    <div className={classes.calenderWrap}>
+      <Calendar onChange={onChange} value={value} className={classes.calenderField} />
       <div
         className="radio-text"
         style={{
           background: "#F2F0FA",
-          height: "215px",
+          paddingBottom:'53px'
+          // height: "215px",
         }}
       >
         <RadioGroup

@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { Calculate } from "@mui/icons-material";
 const appointmentFormStyle = makeStyles((theme) => ({
   stepper: {
     padding: theme.spacing(3, 0, 5),
@@ -32,18 +33,43 @@ const appointmentFormStyle = makeStyles((theme) => ({
   formDiv: { paddingBottom: "24px" },
   formDivWithHeight: {
     paddingBottom: "24px",
-    maxHeight: "611px",
-    height: "611px",
+    maxHeight: "100%",
+    height: "auto",
   },
   textFieldDiv: {
     "& div.MuiInputBase-root": {
       padding: "8px 16px !important",
     },
+    "& div.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input":{
+      padding: "13px 16px !important",
+    },
+    "& .MuiIconButton-root":{
+      padding: '0 5px'
+    },
+    "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline":{
+      top:0
+    },
     "& div.MuiInputBase-root Input.MuiInputBase-input": {
       padding: "0px !important",
       height: "32px",
     },
-  },
+    "& div.css-wb57ya-MuiFormControl-root-MuiTextField-root":{
+      // maxHeight:'378px' , 
+      scrollbarWidth: 'thin',
+      '&::-webkit-scrollbar': {
+        width: '0.4em',
+      },
+      '&::-webkit-scrollbar-track': {
+        background: "#f1f1f1",
+      },
+      '&::-webkit-scrollbar-thumb': {
+        backgroundColor: '#888',
+      },
+      '&::-webkit-scrollbar-thumb:hover': {
+        background: '#555'
+      }
+    }
+  },  
   formTitleTypoGraphy: {
     padding: "24px",
     paddingBottom: "0px",
@@ -83,6 +109,59 @@ const appointmentFormStyle = makeStyles((theme) => ({
       border: "1px solid #C5CEE0",
     },
   },
+  boxWrapper: {
+    display:'flex',
+    flexFlow:'column',
+    height:'100%',
+    "& .justifyBetween":{
+      justifyContent: 'space-between'
+    }
+  },
+  h100:{
+    height:'100%'
+  },
+  checkField:{
+    "&$checked":{
+      color: '#007BFF !important'
+    },
+    "& .MuiSvgIcon-root": { 
+      fontSize: 24, 
+      strokeWidth:0.2, 
+      stroke:'#C5CEE0' 
+    }
+  },
+  checked: {},
+  selectMenuList:{
+    height:'378px' , 
+    scrollbarWidth: 'thin',
+    '&::-webkit-scrollbar': {
+      width: '0.4em',
+    },
+    '&::-webkit-scrollbar-track': {
+      background: "#f1f1f1",
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: '#888',
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      background: '#555'
+    }
+  },
+  calenderWrap:{
+    display:'flex',
+    flexFlow:'column',
+    justifyContent:'space-between',
+    height:'100%'
+  },
+  calenderField:{    
+    "& .react-calendar button":{
+      width:'2rem',
+      height:'2rem',
+      display:'inline-flex',
+      alignItems:'center',
+      justifyContent:'center'
+    }
+  }
 }));
 
 export default appointmentFormStyle;

@@ -68,7 +68,10 @@ const DiagnosticFeeStep = (props) => {
       <div style={{ padding: "10px 0px 0px 11px" }}>
         <Checkbox
           name="DiagnosticFee"
-          size="small"
+          classes={{
+            root: classes.checkField,
+            checked: classes.checked
+          }}          
           onChange={() => setIschecked(!isChecked)}
         />
         <span

@@ -34,7 +34,7 @@ const ServiceStep = (props) => {
   }, []);
 
   return (
-    <>
+    <Box>
       <Typography
         /* style={{
           padding: "24px",
@@ -119,7 +119,7 @@ const ServiceStep = (props) => {
           ))}
         </RadioGroup>
       </FormControl>
-    </>
+    </Box>
   );
 };
 

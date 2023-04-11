@@ -21,7 +21,6 @@ import 'sassy-datepicker/dist/styles.css';
 
 function Calendar() {
   const [date, setDate] = useState(new Date());
-
   const onChange = newDate => {
     setDate(newDate);
   };

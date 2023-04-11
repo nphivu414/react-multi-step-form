@@ -6,12 +6,13 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
+import AutocompleteWithSearchIcon from "../../../FormFields/AutocompleteWithSearchIcon";
 import appointmentFormStyle from "../../styles";
 
 const NewCustomerAddress = () => {
   const classes = appointmentFormStyle();
   const [state, setState] = React.useState("");
-
+  
   const handleChange = (event) => {
     setState(event.target.value);
   };
@@ -29,15 +30,17 @@ const NewCustomerAddress = () => {
 
         <TextField
           className={classes.textFieldDiv}
-          id="outlined-basic"
+          id="street-address"
           label="Street Address"
           variant="outlined"
+          size=""
         />
         <TextField
           className={classes.textFieldDiv}
           id="outlined-basic"
           label="Apartment / Unit"
           variant="outlined"
+          size=""
         />
 
         <div
@@ -54,16 +57,26 @@ const NewCustomerAddress = () => {
             label="City"
             variant="outlined"
             className={classes.textFieldDiv}
+            size=""
           />
-          <FormControl style={{ width: "155px" }}>
-            <InputLabel id="demo-simple-select-label">state</InputLabel>
+          <AutocompleteWithSearchIcon />
+          {/* <FormControl style={{ width: "155px" }}>
+            <InputLabel id="demo-simple-select-label">state</InputLabel>            
             <Select
               className={classes.textFieldDiv}
+              size=""
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={state}
               label="state"
               onChange={handleChange}
+              MenuProps={{
+                anchorOrigin: {
+                  vertical: "bottom",
+                  horizontal: "right"
+                },
+                getContentAnchorEl: null
+              }}
             >
               <MenuItem value="">
                 {" "}
@@ -120,8 +133,8 @@ const NewCustomerAddress = () => {
               <MenuItem value={48}>West Virginia</MenuItem>
               <MenuItem value={49}>Wisconsin</MenuItem>
               <MenuItem value={50}>Wyoming</MenuItem>
-            </Select>
-          </FormControl>
+            </Select> 
+          </FormControl> */}
         </div>
 
         <div
@@ -138,11 +151,17 @@ const NewCustomerAddress = () => {
             id="outlined-basic"
             label="Zip Code"
             variant="outlined"
+            size=""
           />
 
           <div style={{ width: "333px" }}>
-            <Checkbox size="small" />
-            <span
+            <Checkbox 
+              classes={{
+                root: classes.checkField,
+                checked: classes.checked
+              }} 
+            />
+              <span
               style={{
                 fontFamily: "Poppins",
                 fontStyle: "normal",

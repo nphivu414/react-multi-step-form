@@ -204,7 +204,8 @@ export default function AppointmentForm(props) {
   }
 
   return (
-    <React.Fragment>
+    // <React.Fragment>
+    <Box component="div" className={classes.boxWrapper}>  
       <Box
         style={{
           display: "flex",
@@ -267,14 +268,14 @@ export default function AppointmentForm(props) {
           </Step>
         ))}
       </Stepper>
-      <Box>
+      <Box className={classes.h100}>
         <Formik
           initialValues={formInitialValues}
           //validationSchema={currentValidationSchema}
           onSubmit={_handleSubmit}
         >
           {({ isSubmitting }) => (
-            <Form id={formId}>
+            <Form id={formId} className={problemActiveStep===1? classes.boxWrapper:'justifyBetween '+ classes.boxWrapper}>
               {_renderStepContent(activeStep)}
               {activeStep !== 0 && activeStep !== steps.length && (
                 <ButtonAppBar
@@ -289,6 +290,7 @@ export default function AppointmentForm(props) {
           )}
         </Formik>
       </Box>
-    </React.Fragment>
+    </Box>
+    // </React.Fragment>
   );
 }
