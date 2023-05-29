@@ -11,8 +11,8 @@ const {
     nameOnCard,
     cardNumber,
     expiryDate,
-    cvv
-  }
+    cvv,
+  },
 } = checkoutFormModel;
 
 export default {
@@ -26,5 +26,5 @@ export default {
   [nameOnCard.name]: '',
   [cardNumber.name]: '',
   [expiryDate.name]: '',
-  [cvv.name]: ''
+  [cvv.name]: '',
 };

@@ -1,14 +1,11 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import useStyles from './styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 export default function Header() {
-  const classes = useStyles();
-
   return (
-    <AppBar position="absolute" color="default" className={classes.appBar}>
+    <AppBar position="absolute" color="default" sx={{ position: 'relative' }}>
       <Toolbar>
         <Typography variant="h6" color="inherit" noWrap>
           Company name

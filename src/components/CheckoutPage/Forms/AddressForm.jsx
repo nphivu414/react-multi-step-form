@@ -1,62 +1,62 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@mui/material';
 import { InputField, CheckboxField, SelectField } from '../../FormFields';
 
 const cities = [
   {
     value: undefined,
-    label: 'None'
+    label: 'None',
   },
   {
     value: '1',
-    label: 'New York'
+    label: 'New York',
   },
   {
     value: '2',
-    label: 'Chicago'
+    label: 'Chicago',
   },
   {
     value: '3',
-    label: 'Saigon'
-  }
+    label: 'Saigon',
+  },
 ];
 
 const states = [
   {
     value: undefined,
-    label: 'None'
+    label: 'None',
   },
   {
     value: '11',
-    label: 'Florida'
+    label: 'Florida',
   },
   {
     value: '22',
-    label: 'Michigan'
+    label: 'Michigan',
   },
   {
     value: '33',
-    label: 'Texas'
-  }
+    label: 'Texas',
+  },
 ];
 
 const countries = [
   {
     value: null,
-    label: 'None'
+    label: 'None',
   },
   {
     value: '111',
-    label: 'United States'
+    label: 'United States',
   },
   {
     value: '222',
-    label: 'Italy'
+    label: 'Italy',
   },
   {
     value: '333',
-    label: 'Vietnam'
-  }
+    label: 'Vietnam',
+  },
 ];
 
 export default function AddressForm(props) {
@@ -70,8 +70,8 @@ export default function AddressForm(props) {
       state,
       zipcode,
       country,
-      useAddressForPaymentDetails
-    }
+      useAddressForPaymentDetails,
+    },
   } = props;
   return (
     <React.Fragment>

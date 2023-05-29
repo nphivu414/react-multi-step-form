@@ -1,14 +1,12 @@
 import React from 'react';
-import { Typography, Grid } from '@material-ui/core';
-import useStyles from './styles';
+import { Typography, Grid } from '@mui/material';
 
 function PaymentDetails(props) {
   const { formValues } = props;
-  const classes = useStyles();
   const { firstName, lastName, address1 } = formValues;
   return (
     <Grid item xs={12} sm={6}>
-      <Typography variant="h6" gutterBottom className={classes.title}>
+      <Typography variant="h6" gutterBottom>
         Shipping
       </Typography>
       <Typography gutterBottom>{`${firstName} ${lastName}`}</Typography>
